@@ -6,10 +6,11 @@ import android.media.MediaScannerConnection
 import android.os.Bundle
 import android.os.Environment
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import androidx.activity.ComponentActivity
-import com.example.scoutingappcharm.R
+import com.google.android.material.snackbar.Snackbar
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.EncodeHintType
 import com.google.zxing.qrcode.QRCodeWriter
@@ -23,12 +24,16 @@ class MainActivity : ComponentActivity() {
         setContentView(R.layout.activity_main) // Set the content view here
 
         // Inside your Activity or Fragment
-        val editText = findViewById<EditText>(R.id.TeamNumber)
-        val button = findViewById<Button>(R.id.Submit)
+        val teamNumber = findViewById<EditText>(R.id.TeamNumber)
+        val submit = findViewById<Button>(R.id.Submit)
+        val matchNumber = findViewById<EditText>(R.id.MatchNumber)
 
-        button.setOnClickListener {
+        submit.setOnClickListener {
+            showSnackbar(it, "Made a QR Code at ${getPhotoDirectory()}")
             // Pass `this@MainActivity` as the Context to the function
-            generateAndSaveQRCode(this@MainActivity, getPhotoDirectory(), editText.text.toString())
+            val content = "Team Number: ${teamNumber.text.toString()} \n" +
+                    "Match Number: ${matchNumber.text.toString()}"
+            generateAndSaveQRCode(this@MainActivity, getPhotoDirectory(), content, "Team(${teamNumber.text.toString()})MatchNumber(${matchNumber.text.toString()})QRCode.jpg")
         }
     }
 }
@@ -38,7 +43,7 @@ fun getPhotoDirectory(): File {
     return File(photoDirectory, "Camera")
 }
 
-fun generateAndSaveQRCode(context: Context, directory: File, content: String) {
+fun generateAndSaveQRCode(context: Context, directory: File, content: String, name: String) {
     try {
         // Create the QR code bitmap
         val qrCodeBitmap = generateQRCode(content, 500) // QR code size of 500px
@@ -49,7 +54,7 @@ fun generateAndSaveQRCode(context: Context, directory: File, content: String) {
         }
 
         // Create a file to save the QR code image (JPG format)
-        val qrCodeFile = File(directory, "qr_code.jpg")
+        val qrCodeFile = File(directory, name)
 
         // Save the bitmap as a JPG file
         val fileOutputStream = FileOutputStream(qrCodeFile)
@@ -94,4 +99,8 @@ fun generateQRCode(content: String, size: Int): Bitmap {
     }
 
     return bitmap
+}
+
+private fun showSnackbar(view: View, message: String) {
+    Snackbar.make(view, message, Snackbar.LENGTH_LONG).show()
 }
