@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ScoutingAppCharm</string>
+    <string name="team_number">Team Number</string>
+    <string name="submit">Submit</string>
 </resources>
