@@ -8,6 +8,7 @@ import android.os.Environment
 import android.util.Log
 import android.view.View
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.EditText
 import androidx.activity.ComponentActivity
 import com.google.android.material.snackbar.Snackbar
@@ -27,13 +28,17 @@ class MainActivity : ComponentActivity() {
         val teamNumber = findViewById<EditText>(R.id.TeamNumber)
         val submit = findViewById<Button>(R.id.Submit)
         val matchNumber = findViewById<EditText>(R.id.MatchNumber)
+        val startingPos = findViewById<EditText>(R.id.StartingPos)
+        val moved = findViewById<CheckBox>(R.id.Moved)
 
         submit.setOnClickListener {
             showSnackbar(it, "Made a QR Code at ${getPhotoDirectory()}")
             // Pass `this@MainActivity` as the Context to the function
-            val content = "Team Number: ${teamNumber.text.toString()} \n" +
-                    "Match Number: ${matchNumber.text.toString()}"
-            generateAndSaveQRCode(this@MainActivity, getPhotoDirectory(), content, "Team(${teamNumber.text.toString()})MatchNumber(${matchNumber.text.toString()})QRCode.jpg")
+            val content = "Team Number: ${teamNumber.text} \n" +
+                    "Match Number: ${matchNumber.text} \n" +
+                    "Starting Position: ${startingPos.text} \n" +
+                    "Moved: ${moved.isChecked}"
+            generateAndSaveQRCode(this@MainActivity, getPhotoDirectory(), content, "Team(${teamNumber.text})MatchNumber(${matchNumber.text})QRCode.jpg")
         }
     }
 }

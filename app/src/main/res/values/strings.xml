@@ -1,6 +1,35 @@
 <resources>
     <string name="app_name">ScoutingAppCharm</string>
+    <string name="prematch">Prematch</string>
+    <string name="auto">Auto</string>
     <string name="team_number">Team Number</string>
     <string name="match_number">Match Number</string>
+    <string name="starting_pos">Starting Position</string>
+    <string name="Amoved">Moved?</string>
+    <string name="AL1Scored">L1 Scored</string>
+    <string name="AL2Scored">L2 Scored</string>
+    <string name="AL3Scored">L3 Scored</string>
+    <string name="AL4Scored">L4 Scored</string>
+    <string name="Aalgae_barge_scored">Algae Barge Scored</string>
+    <string name="Aalgae_processor_scored">Algae Processor Scored</string>
+    <string name="Adislodged_algae">Dislodged Algae?</string>
+    <string name="Afoul">Fouls</string>
+    <string name="Tdislodged_algae">Dislodged Algae?</string>
+    <string name="TL1Scored">L1 Scored</string>
+    <string name="TL2Scored">L2 Scored</string>
+    <string name="TL3Scored">L3 Scored</string>
+    <string name="TL4Scored">L4 Scored</string>
+    <string name="Talgae_barged_scored">Algae Barge Scored</string>
+    <string name="Talgae_processor_scored">Algae Processor Scored</string>
+    <string name="Tcross_field">Crossed Field/Played Defense?</string>
+    <string name="Tfell_over">Fell Over?</string>
+    <string name="Ttimes_oppsing_cage">How Many Times Touched Opposing Cage</string>
+    <string name="Tdied">Died?</string>
+    <string name="endPos">End Position</string>
+    <string name="defended">Defended?</string>
+    <string name="offense_skill">Offense Skill</string>
+    <string name="defense_skill">Defense Skill</string>
+    <string name="cards_recieved">Any Cards Received</string>
+    <string name="gen_notes">General Notes</string>
     <string name="submit">Submit</string>
 </resources>
