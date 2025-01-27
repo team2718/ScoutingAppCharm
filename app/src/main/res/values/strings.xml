@@ -1,10 +1,16 @@
 <resources>
     <string name="app_name">ScoutingAppCharm</string>
+    <string name="circle">🟢</string>
+    <string name="next">Next</string>
+    <string name="back">Back</string>
     <string name="prematch">Prematch</string>
+    <string name="endgame">Endgame</string>
     <string name="auto">Auto</string>
+    <string name="teleop">Teleop</string>
     <string name="team_number">Team Number</string>
     <string name="match_number">Match Number</string>
     <string name="starting_pos">Starting Position</string>
+    <string name="frcfield">FRC Field</string>
     <string name="Amoved">Moved?</string>
     <string name="AL1Scored">L1 Scored</string>
     <string name="AL2Scored">L2 Scored</string>
@@ -29,7 +35,22 @@
     <string name="defended">Defended?</string>
     <string name="offense_skill">Offense Skill</string>
     <string name="defense_skill">Defense Skill</string>
-    <string name="cards_recieved">Any Cards Received</string>
+    <string name="cards_received">Any Cards Received</string>
+    <string name="postmatch">Post Match</string>
     <string name="gen_notes">General Notes</string>
     <string name="submit">Submit</string>
+    <string-array name="offensiveSkillItems">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+    <string-array name="defensiveSkillItems">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
 </resources>
