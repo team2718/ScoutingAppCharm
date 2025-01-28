@@ -31,25 +31,28 @@ import java.util.Hashtable
 class MainActivity : ComponentActivity() {
     override fun onTouchEvent(event: MotionEvent?): Boolean {
         event?.let {
-            var x = it.x  // X position of the touch
-            var y = it.y  // Y position of the touch
-            x = Math.round(x).toFloat()
-            y = Math.round(y).toFloat()
+            val prematchLayout = findViewById<androidx.constraintlayout.widget.ConstraintLayout>(R.id.prematch)
+            if (prematchLayout.visibility == View.VISIBLE) {
+                var x = it.x  // X position of the touch
+                var y = it.y  // Y position of the touch
+                x = Math.round(x).toFloat()
+                y = Math.round(y).toFloat()
 
-            // You can use the touch position here
-            Log.d("TouchPosition", "X: $x, Y: $y")
+                // You can use the touch position here
+                Log.d("TouchPosition", "X: $x, Y: $y")
 
-            //val Xdp = x / (resources.displayMetrics.density)
-            //val Ydp = y / (resources.displayMetrics.density)
+                //val Xdp = x / (resources.displayMetrics.density)
+                //val Ydp = y / (resources.displayMetrics.density)
 
-            val pointToTouch = findViewById<TextView>(R.id.pointToTouch)
+                val pointToTouch = findViewById<TextView>(R.id.pointToTouch)
 
-            val startingPos = findViewById<TextView>(R.id.StartingPos)
+                val startingPos = findViewById<TextView>(R.id.StartingPos)
 
-            startingPos.text = "(${x}, ${y})"
+                startingPos.text = "(${x}, ${y})"
 
-            pointToTouch.x = x;
-            pointToTouch.y = y;
+                pointToTouch.x = x;
+                pointToTouch.y = y;
+            }
         }
         return super.onTouchEvent(event)
     }
