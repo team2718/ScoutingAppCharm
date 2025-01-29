@@ -130,7 +130,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <ImageView
+            android:id="@+id/EndGameBoard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="180dp"
+            android:layout_marginTop="160dp"
+            android:background="@color/cardview_dark_background"
+            android:scaleX=".75"
+            android:scaleY=".75"
+            android:src="@drawable/pathplanner"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/endPos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="150dp"
+            android:layout_marginBottom="415dp"
+            android:text="@string/endPos"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/linearLayout6"
+            app:layout_constraintStart_toStartOf="parent" />
+
         <LinearLayout
+            android:id="@+id/linearLayout6"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
@@ -153,16 +178,13 @@
                 android:text="@string/defended"
                 android:textSize="20sp" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/Eendpos"
-                android:layout_width="150dp"
-                android:layout_height="50dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="5dp"
-                android:gravity="center"
-                android:hint="@string/endPos"
-                android:inputType="text"
-                android:orientation="horizontal" />
+            <TextView
+                android:id="@+id/endPosText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="@string/endPos"
+                android:textSize="20sp" />
 
         </LinearLayout>
 
@@ -183,6 +205,15 @@
             android:layout_marginStart="32dp"
             android:layout_marginBottom="15dp"
             android:text="@string/back"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/pointToTouch2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="100dp"
+            android:text="@string/circle"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -376,6 +407,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <ImageView
+            android:id="@+id/PrematchBoard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="180dp"
+            android:layout_marginTop="160dp"
+            android:background="@color/cardview_dark_background"
+            android:scaleX=".75"
+            android:scaleY=".75"
+            android:src="@drawable/pathplanner"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <LinearLayout
             android:id="@+id/linearLayout5"
             android:layout_width="wrap_content"
@@ -424,6 +468,8 @@
             android:id="@+id/pointToTouch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="500dp"
+            android:layout_marginTop="1000dp"
             android:text="@string/circle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

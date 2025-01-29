@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">ScoutingAppCharm</string>
-    <string name="circle">🟢</string>
+    <string name="circle">🔴</string>
     <string name="next">Next</string>
     <string name="back">Back</string>
     <string name="prematch">Prematch</string>
@@ -10,6 +10,7 @@
     <string name="team_number">Team Number</string>
     <string name="match_number">Match Number</string>
     <string name="starting_pos">Starting Position</string>
+    <string name="ending_pos">Ending Position</string>
     <string name="frcfield">FRC Field</string>
     <string name="Amoved">Moved?</string>
     <string name="AL1Scored">L1 Scored</string>

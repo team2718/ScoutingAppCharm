@@ -27,11 +27,13 @@ import java.io.File
 import java.io.FileInputStream
 import java.io.FileOutputStream
 import java.util.Hashtable
+import kotlin.math.max
 
 class MainActivity : ComponentActivity() {
     override fun onTouchEvent(event: MotionEvent?): Boolean {
         event?.let {
             val prematchLayout = findViewById<androidx.constraintlayout.widget.ConstraintLayout>(R.id.prematch)
+            val endgameLayout = findViewById<androidx.constraintlayout.widget.ConstraintLayout>(R.id.Endgame)
             if (prematchLayout.visibility == View.VISIBLE) {
                 var x = it.x  // X position of the touch
                 var y = it.y  // Y position of the touch
@@ -39,7 +41,7 @@ class MainActivity : ComponentActivity() {
                 y = Math.round(y).toFloat()
 
                 // You can use the touch position here
-                Log.d("TouchPosition", "X: $x, Y: $y")
+                Log.d("TouchPosition", "X: ${x / 10}, Y: ${y / 10}")
 
                 //val Xdp = x / (resources.displayMetrics.density)
                 //val Ydp = y / (resources.displayMetrics.density)
@@ -48,14 +50,46 @@ class MainActivity : ComponentActivity() {
 
                 val startingPos = findViewById<TextView>(R.id.StartingPos)
 
-                startingPos.text = "(${x}, ${y})"
+                startingPos.text = "(${x / 10f}, ${y / 10f})"
 
-                pointToTouch.x = x;
-                pointToTouch.y = y;
+                pointToTouch.x = clamp(x, 385f, 1240f);
+                pointToTouch.y = clamp(y, 275f, 655f);
+            }
+            if (endgameLayout.visibility == View.VISIBLE) {
+                var x = it.x  // X position of the touch
+                var y = it.y  // Y position of the touch
+                x = Math.round(x).toFloat()
+                y = Math.round(y).toFloat()
+
+                // You can use the touch position here
+                Log.d("TouchPosition", "X: ${x / 10}, Y: ${y / 10}")
+
+                //val Xdp = x / (resources.displayMetrics.density)
+                //val Ydp = y / (resources.displayMetrics.density)
+
+                val pointToTouch2 = findViewById<TextView>(R.id.pointToTouch2)
+
+                val endingPos = findViewById<TextView>(R.id.endPos)
+
+                endingPos.text = "(${x / 10f}, ${y / 10f})"
+
+                pointToTouch2.x = clamp(x, 385f, 1240f);
+                pointToTouch2.y = clamp(y, 275f, 655f);
             }
         }
         return super.onTouchEvent(event)
     }
+
+    private fun clamp(value: Float, min: Float, max: Float): Float {
+        if (value > max) {
+            return max
+        }
+        if (value < min) {
+            return min
+        }
+        return value;
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_layout) // Set the content view here
@@ -104,7 +138,7 @@ class MainActivity : ComponentActivity() {
         val Ttouched_opposing_cage = findViewById<TextInputEditText>(R.id.Ttimes_oppsing_cage)
 
         val Edefended = findViewById<CheckBox>(R.id.Edefended)
-        val Eendpos = findViewById<TextInputEditText>(R.id.Eendpos)
+        val Eendpos = findViewById<TextView>(R.id.endPos)
 
         val POCardsReceived = findViewById<TextInputEditText>(R.id.PCardsReceived)
         val POGeneralNotes = findViewById<TextInputEditText>(R.id.PGeneralNotes)
@@ -142,7 +176,7 @@ class MainActivity : ComponentActivity() {
                     "Teleop How Many Times Did the Robot Touch the Opposing Cage: ${Ttouched_opposing_cage.text}\n" +
                     "Teleop Died: ${Tdied.isChecked}\n" +
                     "\n" +
-                    "Endgame EndPosition: ${Eendpos.text}\n" +
+                    "Endgame End Position: ${Eendpos.text}\n" +
                     "Endgame Defended: ${Edefended.isChecked}\n" +
                     "\n" +
                     "Postmatch Offensive Skill: ${offensiveDropdown.selectedItem}\n" +
