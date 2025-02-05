@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_scouting"
+    app:startDestination="@id/scoutingMatchInfo">
+
+    <fragment
+        android:id="@+id/scoutingMatchInfo"
+        android:name="com.example.scoutingappcharm.ScoutingMatchInfo"
+        android:label="fragment_scouting_match_info"
+        tools:layout="@layout/fragment_scouting_match_info" />
+</navigation>
