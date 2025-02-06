@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_scouting"
-    app:startDestination="@id/scoutingMatchInfo">
+    app:startDestination="@id/nav_scouting_match_info">
 
     <fragment
-        android:id="@+id/scoutingMatchInfo"
-        android:name="com.example.scoutingappcharm.ScoutingMatchInfo"
-        android:label="fragment_scouting_match_info"
+        android:id="@+id/nav_scouting_match_info"
+        android:name="com.team2718.scoutingappcharm.scouting.ScoutingMatchInfo"
+        android:label="@string/navbar_scouting"
         tools:layout="@layout/fragment_scouting_match_info" />
 </navigation>

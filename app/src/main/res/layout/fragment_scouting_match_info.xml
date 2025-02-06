@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ScoutingMatchInfo">
+    tools:context=".scouting.ScoutingMatchInfo">
 
     <LinearLayout
         android:id="@+id/linearLayout4"
@@ -24,7 +24,7 @@
             android:text="@string/prematch"
             android:textSize="25sp" />
 
-        <com.google.android.material.textfield.TextInputEditText
+        <EditText
             android:id="@+id/TeamNumber"
             android:layout_width="150dp"
             android:layout_height="50dp"
@@ -35,7 +35,7 @@
             android:inputType="number"
             android:orientation="horizontal" />
 
-        <com.google.android.material.textfield.TextInputEditText
+        <EditText
             android:id="@+id/MatchNumber"
             android:layout_width="150dp"
             android:layout_height="50dp"

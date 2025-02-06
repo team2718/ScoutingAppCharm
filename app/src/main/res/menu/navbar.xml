@@ -2,9 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/nav_scouting"
         android:icon="@android:drawable/ic_menu_view"
-        android:title="@string/app_name" />
+        android:contentDescription="@string/navbar_scouting"
+        android:title="@string/navbar_scouting" />
     <item
+        android:id="@+id/nav_sync"
         android:icon="@android:drawable/ic_menu_set_as"
+        android:contentDescription="@string/navbar_sync"
         android:title="@string/navbar_sync" />
 </menu>

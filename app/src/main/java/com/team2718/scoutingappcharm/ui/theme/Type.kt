@@ -1,4 +1,4 @@
-package com.example.scoutingappcharm.ui.theme
+package com.team2718.scoutingappcharm.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
