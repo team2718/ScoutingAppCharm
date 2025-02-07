@@ -94,6 +94,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_layout) // Set the content view here
 
+        var pageNum = 1
+
         val submit = findViewById<Button>(R.id.Submit)
 
         val prematchLayout = findViewById<androidx.constraintlayout.widget.ConstraintLayout>(R.id.prematch)
@@ -103,13 +105,7 @@ class MainActivity : ComponentActivity() {
         val postmatchLayout = findViewById<androidx.constraintlayout.widget.ConstraintLayout>(R.id.PostMatch)
 
         val next1 = findViewById<Button>(R.id.next1)
-        val next2 = findViewById<Button>(R.id.next2)
-        val next3 = findViewById<Button>(R.id.next3)
-        val next4 = findViewById<Button>(R.id.next4)
         val back1 = findViewById<Button>(R.id.back1)
-        val back2 = findViewById<Button>(R.id.back2)
-        val back3 = findViewById<Button>(R.id.back3)
-        val back4 = findViewById<Button>(R.id.back4)
 
         val PRteamnumber = findViewById<TextInputEditText>(R.id.TeamNumber)
         val PRmatchnumber = findViewById<TextInputEditText>(R.id.MatchNumber)
@@ -117,6 +113,7 @@ class MainActivity : ComponentActivity() {
 
         val Amoved = findViewById<CheckBox>(R.id.moved)
         val Adislodged_algae = findViewById<CheckBox>(R.id.Adislodged_algae)
+        val L1Scored = findViewById<Button>(R.id.L1Scored)
         val AL1Scored = findViewById<TextInputEditText>(R.id.AL1Scored)
         val AL2Scored = findViewById<TextInputEditText>(R.id.AL2Scored)
         val AL3Scored = findViewById<TextInputEditText>(R.id.AL3Scored)
@@ -191,68 +188,71 @@ class MainActivity : ComponentActivity() {
             showSnackbar(it, "Saved QR Code to ${getPhotoDirectory()}")
         }
 
+        fun UpdatePage(): Unit {
+            if (pageNum == 1) {
+                postmatchLayout.visibility = View.GONE;
+                endgameLayout.visibility = View.GONE;
+                teleopLayout.visibility = View.GONE
+                autoLayout.visibility = View.GONE
+                prematchLayout.visibility = View.VISIBLE
+            } else if (pageNum == 2) {
+                postmatchLayout.visibility = View.GONE
+                endgameLayout.visibility = View.GONE
+                teleopLayout.visibility = View.GONE
+                autoLayout.visibility = View.VISIBLE
+                prematchLayout.visibility = View.GONE
+            } else if (pageNum == 3) {
+                postmatchLayout.visibility = View.GONE
+                endgameLayout.visibility = View.GONE
+                teleopLayout.visibility = View.VISIBLE
+                autoLayout.visibility = View.GONE
+                prematchLayout.visibility = View.GONE
+            } else if (pageNum == 4) {
+                postmatchLayout.visibility = View.GONE
+                endgameLayout.visibility = View.VISIBLE
+                teleopLayout.visibility = View.GONE
+                autoLayout.visibility = View.GONE
+                prematchLayout.visibility = View.GONE
+            } else if (pageNum == 5) {
+                postmatchLayout.visibility = View.GONE
+                endgameLayout.visibility = View.VISIBLE
+                teleopLayout.visibility = View.GONE
+                autoLayout.visibility = View.GONE
+                prematchLayout.visibility = View.GONE
+            } else {
+                postmatchLayout.visibility = View.GONE
+                endgameLayout.visibility = View.GONE
+                teleopLayout.visibility = View.GONE
+                autoLayout.visibility = View.GONE
+                prematchLayout.visibility = View.GONE
+            }
+        }
+
         next1.setOnClickListener {
-            postmatchLayout.visibility = View.GONE;
-            endgameLayout.visibility = View.GONE;
-            teleopLayout.visibility = View.GONE
-            autoLayout.visibility = View.VISIBLE
-            prematchLayout.visibility = View.GONE
-        }
-
-        next2.setOnClickListener {
-            postmatchLayout.visibility = View.GONE
-            endgameLayout.visibility = View.GONE
-            teleopLayout.visibility = View.VISIBLE
-            autoLayout.visibility = View.GONE
-            prematchLayout.visibility = View.GONE
-        }
-
-        next3.setOnClickListener {
-            postmatchLayout.visibility = View.GONE
-            endgameLayout.visibility = View.VISIBLE
-            teleopLayout.visibility = View.GONE
-            autoLayout.visibility = View.GONE
-            prematchLayout.visibility = View.GONE
-        }
-
-        next4.setOnClickListener {
-            postmatchLayout.visibility = View.VISIBLE
-            endgameLayout.visibility = View.GONE
-            teleopLayout.visibility = View.GONE
-            autoLayout.visibility = View.GONE
-            prematchLayout.visibility = View.GONE
+            pageNum += 1
+            if (pageNum > 5) {
+                pageNum = 5
+            }
+            UpdatePage()
         }
 
         // Handle "Back" button click
         back1.setOnClickListener {
-            postmatchLayout.visibility = View.GONE;
-            endgameLayout.visibility = View.GONE;
-            teleopLayout.visibility = View.GONE
-            autoLayout.visibility = View.GONE
-            prematchLayout.visibility = View.VISIBLE
+            pageNum -= 1
+            if (pageNum < 0) {
+                pageNum = 0
+            }
+            UpdatePage()
         }
 
-        back2.setOnClickListener {
+
+
+
+        L1Scored.setOnClickListener {
             postmatchLayout.visibility = View.GONE;
             endgameLayout.visibility = View.GONE;
             teleopLayout.visibility = View.GONE
             autoLayout.visibility = View.VISIBLE
-            prematchLayout.visibility = View.GONE
-        }
-
-        back3.setOnClickListener {
-            postmatchLayout.visibility = View.GONE;
-            endgameLayout.visibility = View.GONE;
-            teleopLayout.visibility = View.VISIBLE
-            autoLayout.visibility = View.GONE
-            prematchLayout.visibility = View.GONE
-        }
-
-        back4.setOnClickListener {
-            postmatchLayout.visibility = View.GONE;
-            endgameLayout.visibility = View.VISIBLE;
-            teleopLayout.visibility = View.GONE
-            autoLayout.visibility = View.GONE
             prematchLayout.visibility = View.GONE
         }
     }

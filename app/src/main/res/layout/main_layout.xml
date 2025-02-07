@@ -6,11 +6,29 @@
     android:layout_height="match_parent"
     android:visibility="visible">
 
+    <Button
+        android:id="@+id/next1"
+        android:layout_width="152px"
+        android:layout_height="96px"
+        android:text="@string/next"
+        android:visibility="visible"
+        tools:layout_editor_absoluteX="144px"
+        tools:layout_editor_absoluteY="837px" />
+
+    <Button
+        android:id="@+id/back1"
+        android:layout_width="152px"
+        android:layout_height="96px"
+        android:text="@string/back"
+        android:visibility="visible"
+        tools:layout_editor_absoluteX="32px"
+        tools:layout_editor_absoluteY="537px" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/PostMatch"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="invisible"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -101,16 +119,6 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/back4"
-            android:layout_width="88dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginBottom="15dp"
-            android:text="@string/back"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <Button
             android:id="@+id/Submit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -126,7 +134,7 @@
         android:id="@+id/Endgame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="invisible"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -188,26 +196,6 @@
 
         </LinearLayout>
 
-        <Button
-            android:id="@+id/next4"
-            android:layout_width="88dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="152dp"
-            android:layout_marginBottom="15dp"
-            android:text="@string/next"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <Button
-            android:id="@+id/back3"
-            android:layout_width="88dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginBottom="15dp"
-            android:text="@string/back"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
         <TextView
             android:id="@+id/pointToTouch2"
             android:layout_width="wrap_content"
@@ -223,7 +211,7 @@
         android:id="@+id/Teleop"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="visible"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -376,26 +364,6 @@
                 android:textSize="20sp" />
         </LinearLayout>
 
-        <Button
-            android:id="@+id/next3"
-            android:layout_width="88dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="152dp"
-            android:layout_marginBottom="15dp"
-            android:text="@string/next"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <Button
-            android:id="@+id/back2"
-            android:layout_width="88dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginBottom="15dp"
-            android:text="@string/back"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -403,7 +371,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:visibility="invisible"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -481,6 +449,7 @@
             android:layout_marginStart="1dp"
             android:layout_marginTop="1dp"
             android:orientation="vertical"
+            android:visibility="visible"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -524,23 +493,13 @@
 
         </LinearLayout>
 
-        <Button
-            android:id="@+id/next1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginBottom="15dp"
-            android:text="@string/next"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="invisible"
+        android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -548,7 +507,7 @@
             android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="150dp"
+            android:layout_marginStart="15dp"
             android:orientation="vertical"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -585,96 +544,85 @@
                 android:hint="@string/Afoul"
                 android:inputType="number" />
 
-        </LinearLayout>
+            <Button
+                android:id="@+id/L1Scored"
+                android:layout_width="40dp"
+                android:layout_height="38dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginBottom="15dp"
+                android:text="+"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
-        <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:visibility="visible"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:id="@+id/autoText"
+            <LinearLayout
+                android:id="@+id/linearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/auto"
-                android:textSize="25sp" />
+                android:orientation="vertical"
+                android:visibility="visible">
 
-            <CheckBox
-                android:id="@+id/moved"
-                android:layout_width="150dp"
-                android:layout_height="50dp"
-                android:button="@null"
-                android:drawableEnd="?android:attr/listChoiceIndicatorMultiple"
-                android:gravity="center"
-                android:text="@string/Amoved"
-                android:textSize="20sp" />
+                <TextView
+                    android:id="@+id/autoText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/auto"
+                    android:textSize="25sp" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/AL1Scored"
-                android:layout_width="150dp"
-                android:layout_height="50dp"
-                android:gravity="center"
-                android:hint="@string/AL1Scored"
-                android:inputType="number" />
+                <CheckBox
+                    android:id="@+id/moved"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:button="@null"
+                    android:drawableEnd="?android:attr/listChoiceIndicatorMultiple"
+                    android:gravity="center"
+                    android:text="@string/Amoved"
+                    android:textSize="20sp" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/AL2Scored"
-                android:layout_width="150dp"
-                android:layout_height="50dp"
-                android:gravity="center"
-                android:hint="@string/AL2Scored"
-                android:inputType="number" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/AL1Scored"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:hint="@string/AL1Scored"
+                    android:inputType="number" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/AL3Scored"
-                android:layout_width="150dp"
-                android:layout_height="50dp"
-                android:gravity="center"
-                android:hint="@string/AL3Scored"
-                android:inputType="number" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/AL2Scored"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:hint="@string/AL2Scored"
+                    android:inputType="number" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/AL4Scored"
-                android:layout_width="150dp"
-                android:layout_height="50dp"
-                android:gravity="center"
-                android:hint="@string/AL4Scored"
-                android:inputType="number" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/AL3Scored"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:hint="@string/AL3Scored"
+                    android:inputType="number" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/Aalgae_barge_scored"
-                android:layout_width="250dp"
-                android:layout_height="50dp"
-                android:gravity="center"
-                android:hint="@string/Aalgae_barge_scored"
-                android:inputType="number" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/AL4Scored"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:hint="@string/AL4Scored"
+                    android:inputType="number" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/Aalgae_barge_scored"
+                    android:layout_width="250dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:hint="@string/Aalgae_barge_scored"
+                    android:inputType="number" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
-        <Button
-            android:id="@+id/next2"
-            android:layout_width="88dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="152dp"
-            android:layout_marginBottom="15dp"
-            android:text="@string/next"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <Button
-            android:id="@+id/back1"
-            android:layout_width="88dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginBottom="15dp"
-            android:text="@string/back"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
