@@ -32,7 +32,7 @@
             android:layout_marginTop="5dp"
             android:gravity="center"
             android:hint="@string/team_number"
-            android:inputType="number"
+            android:inputType="numberDecimal"
             android:orientation="horizontal" />
 
         <EditText
@@ -43,7 +43,7 @@
             android:layout_marginTop="5dp"
             android:gravity="center"
             android:hint="@string/match_number"
-            android:inputType="number" />
+            android:inputType="numberDecimal" />
 
         <TextView
             android:id="@+id/StartingPosText"

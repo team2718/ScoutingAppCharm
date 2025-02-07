@@ -1,8 +1,6 @@
 package com.team2718.scoutingappcharm.scouting
 
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,9 +15,10 @@ class ScoutingMatchInfo : Fragment() {
 
     val viewModel: SharedViewModel by activityViewModels()
 
-    var teamNumber: TextView? = null
+    private var teamNumber: TextView? = null
+    private var matchNumber: TextView? = null
 
-    var didLoadReport = false
+    private var didLoadReport = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -27,15 +26,24 @@ class ScoutingMatchInfo : Fragment() {
         var view = inflater.inflate(R.layout.fragment_scouting_match_info, container, false)
 
         teamNumber = view.findViewById<EditText>(R.id.TeamNumber)
+        matchNumber = view.findViewById<EditText>(R.id.MatchNumber)
 
         if (viewModel.currentReport.uid != 0) {
             teamNumber?.text = viewModel.currentReport.teamNumber.toString()
-            didLoadReport = true;
+            matchNumber?.text = viewModel.currentReport.matchNumber.toString()
         }
 
         println("View created")
 
         return view
+    }
+
+    private fun getIntFromTextView(textView: TextView?): Int {
+        val rawText = textView?.text.toString()
+        if (rawText == "")
+            return 0
+        else
+            return Integer.valueOf(rawText)
     }
 
     override fun onPause() {
@@ -45,15 +53,9 @@ class ScoutingMatchInfo : Fragment() {
         if (!didLoadReport)
             return
 
-        val teamNumberText = teamNumber?.text.toString()
-        if (teamNumberText == "")
-            viewModel.currentReport.teamNumber = 0
-        else
-            viewModel.currentReport.teamNumber = Integer.valueOf(teamNumberText)
-        viewModel.updateDB()
-    }
+        viewModel.currentReport.matchNumber = getIntFromTextView(matchNumber)
+        viewModel.currentReport.teamNumber = getIntFromTextView(teamNumber)
 
-    override fun onDestroy() {
-        super.onDestroy()
+        viewModel.updateDB()
     }
 }
