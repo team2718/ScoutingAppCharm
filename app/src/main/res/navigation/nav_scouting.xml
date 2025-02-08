@@ -9,5 +9,22 @@
         android:id="@+id/nav_scouting_match_info"
         android:name="com.team2718.scoutingappcharm.scouting.ScoutingMatchInfo"
         android:label="@string/navbar_scouting"
-        tools:layout="@layout/fragment_scouting_match_info" />
+        tools:layout="@layout/fragment_scouting_match_info" >
+        <action
+            android:id="@+id/action_nav_scouting_match_info_to_fragmentScoutingAuto"
+            app:destination="@id/nav_scouting_auto" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_scouting_auto"
+        android:name="com.team2718.scoutingappcharm.scouting.FragmentScoutingAuto"
+        android:label="@string/navbar_auto"
+        tools:layout="@layout/fragment_scouting_auto">
+        <action
+            android:id="@+id/action_fragmentScoutingAuto_to_fragmentScoutingTeleop"
+            app:destination="@id/nav_scouting_teleop" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_scouting_teleop"
+        android:name="com.team2718.scoutingappcharm.scouting.FragmentScoutingTeleop"
+        android:label="@string/navbar_teleop" />
 </navigation>

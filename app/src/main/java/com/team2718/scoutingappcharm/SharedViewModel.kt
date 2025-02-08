@@ -16,7 +16,7 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
 
     private val prefs = application.getSharedPreferences("team2718-prefs", Context.MODE_PRIVATE)
 
-    private val db = Room.databaseBuilder(application, AppDatabase::class.java, "team2718-db").allowMainThreadQueries().build()
+    private val db = Room.databaseBuilder(application, AppDatabase::class.java, "team2718-db").fallbackToDestructiveMigration().allowMainThreadQueries().build()
     private val scouting_reports = db.scoutingReportDao()
 
     // This is dangerous being public, but I'm sure it'll be fine
@@ -26,6 +26,10 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
         AsyncTask.execute { scouting_reports.insertReplace(currentReport) }
         prefs.edit().putInt("current_report", currentReport.uid).apply()
         println("Wrote " + currentReport.uid + " to prefs!")
+    }
+
+    fun newReport() {
+        currentReport = ScoutingReport(Random.nextInt())
     }
 
     init {

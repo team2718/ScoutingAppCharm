@@ -6,53 +6,104 @@
     android:layout_height="match_parent"
     tools:context=".scouting.ScoutingMatchInfo">
 
+    <TextView
+        android:id="@+id/prematchtext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="1dp"
+        android:text="@string/prematch"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <LinearLayout
         android:id="@+id/linearLayout4"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
+        android:gravity="center_horizontal"
         android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/prematchtext">
 
-        <TextView
-            android:id="@+id/prematchtext"
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/team_number"
+                android:textSize="24sp" />
+
+            <EditText
+                android:id="@+id/teamNumber"
+                android:layout_width="400dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="5dp"
+                android:hint="@string/teamNumberHint"
+                android:inputType="number"
+                android:textSize="24sp" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/prematch"
-            android:textSize="25sp" />
+            android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/TeamNumber"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="5dp"
-            android:gravity="center"
-            android:hint="@string/team_number"
-            android:inputType="numberDecimal"
-            android:orientation="horizontal" />
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/match_number"
+                android:textSize="24sp" />
 
-        <EditText
-            android:id="@+id/MatchNumber"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="5dp"
-            android:gravity="center"
-            android:hint="@string/match_number"
-            android:inputType="numberDecimal" />
+            <EditText
+                android:id="@+id/matchNumber"
+                android:layout_width="400dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="5dp"
+                android:hint="@string/matchNumberHint"
+                android:inputType="number"
+                android:textSize="24sp" />
 
-        <TextView
-            android:id="@+id/StartingPosText"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="5dp"
-            android:gravity="center"
-            android:text="@string/starting_pos"
-            android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/scouter"
+                android:textSize="24sp" />
+
+            <EditText
+                android:id="@+id/scoutName"
+                android:layout_width="400dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="5dp"
+                android:hint="@string/scoutNameHint"
+                android:imeOptions="actionDone"
+                android:inputType="text|textNoSuggestions"
+                android:textSize="24sp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/startReportButton"
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:text="@string/startReportButton"
+            android:textSize="24sp"
+            tools:layout_editor_absoluteX="-267dp"
+            tools:layout_editor_absoluteY="447dp" />
 
     </LinearLayout>
 

@@ -10,6 +10,7 @@ data class ScoutingReport (
     @PrimaryKey var uid: Int,
     @ColumnInfo(name = "team_number") var teamNumber: Int? = 0,
     @ColumnInfo(name = "match_number") var matchNumber: Int? = 0,
+    @ColumnInfo(name = "scout_name") var scoutName: String? = "",
     @ColumnInfo(name = "can_coral_station_intake") var canCoralStationIntake: Boolean? = false,
     @ColumnInfo(name = "can_coral_floor_intake") var canCoralFloorIntake: Boolean? = false,
     @ColumnInfo(name = "can_algae_reef_intake") var canAlgaeReefIntake: Boolean? = false,
@@ -31,5 +32,6 @@ data class ScoutingReport (
     @ColumnInfo(name = "auto_L3") var autoL3: Int? = 0,
     @ColumnInfo(name = "auto_L4") var autoL4: Int? = 0,
     @ColumnInfo(name = "did_leave") var didLeave: Boolean? = false,
-    @ColumnInfo(name = "notes") var notes: String? = ""
+    @ColumnInfo(name = "notes") var notes: String? = "",
+    @ColumnInfo(name = "has_been_scanned") var hasBeenScanned: Boolean? = false
 )
