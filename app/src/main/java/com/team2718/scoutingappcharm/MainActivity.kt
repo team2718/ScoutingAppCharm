@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
 
         // Setup the ActionBar with navController and 3 top level destinations
         appBarConfiguration = AppBarConfiguration(
-            setOf(R.id.nav_scouting_match_info, R.id.nav_sync_view_matches)
+            setOf(R.id.nav_scouting_main, R.id.nav_sync_view_matches)
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
     }

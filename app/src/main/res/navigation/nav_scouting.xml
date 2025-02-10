@@ -3,15 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_scouting"
-    app:startDestination="@id/nav_scouting_match_info">
+    app:startDestination="@id/nav_scouting_main">
 
     <fragment
         android:id="@+id/nav_scouting_match_info"
-        android:name="com.team2718.scoutingappcharm.scouting.ScoutingMatchInfo"
-        android:label="@string/navbar_scouting"
-        tools:layout="@layout/fragment_scouting_match_info" >
+        android:name="com.team2718.scoutingappcharm.scouting.FragmentScoutingMatchInfo"
+        android:label="@string/navbar_scouting_match_info"
+        tools:layout="@layout/fragment_scouting_match_info">
         <action
-            android:id="@+id/action_nav_scouting_match_info_to_fragmentScoutingAuto"
+            android:id="@+id/action_nav_scouting_match_info_to_nav_scouting_auto"
             app:destination="@id/nav_scouting_auto" />
     </fragment>
     <fragment
@@ -27,4 +27,13 @@
         android:id="@+id/nav_scouting_teleop"
         android:name="com.team2718.scoutingappcharm.scouting.FragmentScoutingTeleop"
         android:label="@string/navbar_teleop" />
+    <fragment
+        android:id="@+id/nav_scouting_main"
+        android:name="com.team2718.scoutingappcharm.scouting.FragmentScoutingMain"
+        android:label="@string/navbar_scouting"
+        tools:layout="@layout/fragment_scouting_main">
+        <action
+            android:id="@+id/action_nav_scouting_main_to_nav_scouting_match_info"
+            app:destination="@id/nav_scouting_match_info" />
+    </fragment>
 </navigation>

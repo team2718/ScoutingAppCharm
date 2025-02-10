@@ -18,15 +18,18 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
     private val db = Room.databaseBuilder(application, AppDatabase::class.java, "team2718-db").fallbackToDestructiveMigration().allowMainThreadQueries().build()
     private val scoutingReports = db.scoutingReportDao()
 
+    var shouldMakeNewReport: Boolean = false
     var currentReport: ScoutingReport = ScoutingReport(0)
 
     fun updateDB() {
         viewModelScope.launch { scoutingReports.insertReplace(currentReport) }
+        prefs.edit().putInt("current_report", currentReport.uid).apply()
         Log.i("SharedViewModel","Wrote ${currentReport.uid} to the database.")
     }
 
     fun newReport() {
         currentReport = ScoutingReport(Random.nextInt())
+        prefs.edit().putInt("current_report", currentReport.uid).apply()
         Log.i("SharedViewModel","Created new report ${currentReport.uid}.")
     }
 
