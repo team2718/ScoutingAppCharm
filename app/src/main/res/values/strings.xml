@@ -13,11 +13,10 @@
     <string name="ending_pos">Ending Position</string>
     <string name="frcfield">FRC Field</string>
     <string name="Amoved">Moved?</string>
-    <string name="Plus">+</string>
     <string name="AL1Scored">L1 Scored</string>
     <string name="AL2Scored">L2 Scored</string>
     <string name="AL3Scored">L3 Scored</string>
-    <string name="AL4Scored">L4 Scored</string>
+    <string name="AL4Scored">+</string>
     <string name="Aalgae_barge_scored">Algae Barge Scored</string>
     <string name="Aalgae_processor_scored">Algae Processor Scored</string>
     <string name="Adislodged_algae">Dislodged Algae?</string>

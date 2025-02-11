@@ -96,6 +96,8 @@ class MainActivity : ComponentActivity() {
 
         var pageNum = 1
 
+        var tL4ScoredInt = "0"
+
         val submit = findViewById<Button>(R.id.Submit)
 
         val prematchLayout = findViewById<androidx.constraintlayout.widget.ConstraintLayout>(R.id.prematch)
@@ -113,11 +115,10 @@ class MainActivity : ComponentActivity() {
 
         val Amoved = findViewById<CheckBox>(R.id.moved)
         val Adislodged_algae = findViewById<CheckBox>(R.id.Adislodged_algae)
-        val L1Scored = findViewById<Button>(R.id.L1Scored)
         val AL1Scored = findViewById<TextInputEditText>(R.id.AL1Scored)
         val AL2Scored = findViewById<TextInputEditText>(R.id.AL2Scored)
         val AL3Scored = findViewById<TextInputEditText>(R.id.AL3Scored)
-        val AL4Scored = findViewById<TextInputEditText>(R.id.AL4Scored)
+        val AL4Scored = findViewById<Button>(R.id.AL4Scored)
         val Aalgae_barge_scored = findViewById<TextInputEditText>(R.id.Aalgae_barge_scored)
         val Aalgae_processor_scored = findViewById<TextInputEditText>(R.id.Aalgae_processor_scored)
         val Afoul = findViewById<TextInputEditText>(R.id.Afoul)
@@ -146,6 +147,15 @@ class MainActivity : ComponentActivity() {
         setupSpinner(this, offensiveDropdown, items)
         setupSpinner(this, defensiveDropdown, items)
 
+        postmatchLayout.visibility = View.GONE;
+        endgameLayout.visibility = View.GONE;
+        teleopLayout.visibility = View.GONE
+        autoLayout.visibility = View.GONE
+        prematchLayout.visibility = View.VISIBLE
+
+        next1.visibility = View.VISIBLE
+        back1.visibility = View.GONE
+
         submit.setOnClickListener {
             val content = "Prematch Team Number: ${PRteamnumber.text}\n" +
                     "Prematch Match Number: ${PRmatchnumber.text}\n" +
@@ -162,7 +172,7 @@ class MainActivity : ComponentActivity() {
                     "Auto Foul: ${Afoul.text}\n" +
                     "\n" +
                     "Teleop Dislodged Algae: ${Tdislodged_algae.isChecked}\n" +
-                    "Teleop L1 Scored: ${TL1Scored.text}\n" +
+                    "Teleop L1 Scored: ${tL4ScoredInt.toString()}\n" +
                     "Teleop L2 Scored: ${TL2Scored.text}\n" +
                     "Teleop L3 Scored: ${TL3Scored.text}\n" +
                     "Teleop L4 Scored: ${TL4Scored.text}\n" +
@@ -214,8 +224,8 @@ class MainActivity : ComponentActivity() {
                 autoLayout.visibility = View.GONE
                 prematchLayout.visibility = View.GONE
             } else if (pageNum == 5) {
-                postmatchLayout.visibility = View.GONE
-                endgameLayout.visibility = View.VISIBLE
+                postmatchLayout.visibility = View.VISIBLE
+                endgameLayout.visibility = View.GONE
                 teleopLayout.visibility = View.GONE
                 autoLayout.visibility = View.GONE
                 prematchLayout.visibility = View.GONE
@@ -228,12 +238,30 @@ class MainActivity : ComponentActivity() {
             }
         }
 
+        fun UpdateNextButton(): Unit {
+            if (pageNum == 5) {
+                next1.visibility = View.GONE
+            } else {
+                next1.visibility = View.VISIBLE
+            }
+        }
+
+        fun UpdateBackButton(): Unit {
+            if (pageNum == 1) {
+                back1.visibility = View.GONE
+            } else {
+                back1.visibility = View.VISIBLE
+            }
+        }
+
         next1.setOnClickListener {
             pageNum += 1
             if (pageNum > 5) {
                 pageNum = 5
             }
             UpdatePage()
+            UpdateNextButton()
+            UpdateBackButton()
         }
 
         // Handle "Back" button click
@@ -243,17 +271,16 @@ class MainActivity : ComponentActivity() {
                 pageNum = 0
             }
             UpdatePage()
+            UpdateNextButton()
+            UpdateBackButton()
         }
 
 
-
-
-        L1Scored.setOnClickListener {
-            postmatchLayout.visibility = View.GONE;
-            endgameLayout.visibility = View.GONE;
-            teleopLayout.visibility = View.GONE
-            autoLayout.visibility = View.VISIBLE
-            prematchLayout.visibility = View.GONE
+        AL1Scored.setOnClickListener {
+            tL4ScoredInt.toInt()
+            tL4ScoredInt += 1
+            tL4ScoredInt.toString()
+            findViewById<TextView>(R.id.AL4Text).text = tL4ScoredInt
         }
     }
 
