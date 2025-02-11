@@ -8,21 +8,25 @@
 
     <Button
         android:id="@+id/next1"
-        android:layout_width="152px"
-        android:layout_height="96px"
+        android:layout_width="72dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginBottom="15dp"
         android:text="@string/next"
         android:visibility="visible"
-        tools:layout_editor_absoluteX="144px"
-        tools:layout_editor_absoluteY="837px" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
     <Button
         android:id="@+id/back1"
-        android:layout_width="152px"
-        android:layout_height="96px"
+        android:layout_width="72dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="15dp"
         android:text="@string/back"
         android:visibility="visible"
-        tools:layout_editor_absoluteX="32px"
-        tools:layout_editor_absoluteY="537px" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/PostMatch"
@@ -504,10 +508,85 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/linearLayout2">
+
+            <TextView
+                android:id="@+id/autoText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/auto"
+                android:textSize="25sp" />
+
+            <CheckBox
+                android:id="@+id/moved"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:button="@null"
+                android:drawableEnd="?android:attr/listChoiceIndicatorMultiple"
+                android:gravity="center"
+                android:text="@string/Amoved"
+                android:textSize="20sp" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/AL1Scored"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:hint="@string/AL1Scored"
+                android:inputType="number" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/AL2Scored"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:hint="@string/AL2Scored"
+                android:inputType="number" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/AL3Scored"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:hint="@string/AL3Scored"
+                android:inputType="number" />
+
+            <Button
+                android:id="@+id/AL4Scored"
+                android:layout_width="30dp"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="+"
+                android:inputType="number" />
+
+            <TextView
+                android:id="@+id/AL4Text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="0"/>
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/Aalgae_barge_scored"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:hint="@string/Aalgae_barge_scored"
+                android:inputType="number" />
+
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="15dp"
+            android:layout_marginStart="190dp"
             android:orientation="vertical"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -544,82 +623,7 @@
                 android:hint="@string/Afoul"
                 android:inputType="number" />
 
-            <Button
-                android:id="@+id/L1Scored"
-                android:layout_width="40dp"
-                android:layout_height="38dp"
-                android:layout_marginStart="1dp"
-                android:layout_marginBottom="15dp"
-                android:text="+"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
 
-            <LinearLayout
-                android:id="@+id/linearLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="visible">
-
-                <TextView
-                    android:id="@+id/autoText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="@string/auto"
-                    android:textSize="25sp" />
-
-                <CheckBox
-                    android:id="@+id/moved"
-                    android:layout_width="150dp"
-                    android:layout_height="50dp"
-                    android:button="@null"
-                    android:drawableEnd="?android:attr/listChoiceIndicatorMultiple"
-                    android:gravity="center"
-                    android:text="@string/Amoved"
-                    android:textSize="20sp" />
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/AL1Scored"
-                    android:layout_width="150dp"
-                    android:layout_height="50dp"
-                    android:gravity="center"
-                    android:hint="@string/AL1Scored"
-                    android:inputType="number" />
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/AL2Scored"
-                    android:layout_width="150dp"
-                    android:layout_height="50dp"
-                    android:gravity="center"
-                    android:hint="@string/AL2Scored"
-                    android:inputType="number" />
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/AL3Scored"
-                    android:layout_width="150dp"
-                    android:layout_height="50dp"
-                    android:gravity="center"
-                    android:hint="@string/AL3Scored"
-                    android:inputType="number" />
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/AL4Scored"
-                    android:layout_width="150dp"
-                    android:layout_height="50dp"
-                    android:gravity="center"
-                    android:hint="@string/AL4Scored"
-                    android:inputType="number" />
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/Aalgae_barge_scored"
-                    android:layout_width="250dp"
-                    android:layout_height="50dp"
-                    android:gravity="center"
-                    android:hint="@string/Aalgae_barge_scored"
-                    android:inputType="number" />
-
-            </LinearLayout>
 
         </LinearLayout>
 
