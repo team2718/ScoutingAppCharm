@@ -54,7 +54,10 @@ class FragmentScoutingMatchInfo : Fragment() {
                 return@setOnClickListener
             }
 
-            viewModel.newReport()
+            if (viewModel.shouldMakeNewReport) {
+                viewModel.newReport()
+                viewModel.shouldMakeNewReport = false
+            }
 
             viewModel.currentReport.matchNumber = getIntFromTextView(matchNumber)
             viewModel.currentReport.teamNumber = getIntFromTextView(teamNumber)
@@ -68,6 +71,12 @@ class FragmentScoutingMatchInfo : Fragment() {
             viewModel.updateDB()
 
             findNavController().navigate(R.id.nav_scouting_auto)
+        }
+
+        if (viewModel.doPageSkipping && viewModel.currentReport.stagesComplete!! >= 1) {
+            findNavController().navigate(R.id.nav_scouting_auto)
+        } else {
+            viewModel.doPageSkipping = false
         }
 
         return view

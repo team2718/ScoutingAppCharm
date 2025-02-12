@@ -19,6 +19,7 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
     private val scoutingReports = db.scoutingReportDao()
 
     var shouldMakeNewReport: Boolean = false
+    var doPageSkipping: Boolean = false
     var currentReport: ScoutingReport = ScoutingReport(0)
 
     fun updateDB() {
@@ -28,7 +29,7 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
     }
 
     fun newReport() {
-        currentReport = ScoutingReport(Random.nextInt())
+        currentReport = ScoutingReport(Random.nextInt(0, 1000000000))
         prefs.edit().putInt("current_report", currentReport.uid).apply()
         Log.i("SharedViewModel","Created new report ${currentReport.uid}.")
     }

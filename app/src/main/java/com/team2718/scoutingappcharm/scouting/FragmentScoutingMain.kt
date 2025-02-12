@@ -41,6 +41,7 @@ class FragmentScoutingMain : Fragment() {
 
         view.findViewById<Button>(R.id.continueReportButton).setOnClickListener {
             viewModel.shouldMakeNewReport = false
+            viewModel.doPageSkipping = true
             findNavController().navigate(R.id.nav_scouting_match_info)
         }
 

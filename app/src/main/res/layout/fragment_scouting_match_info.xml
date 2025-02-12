@@ -6,6 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".scouting.FragmentScoutingMatchInfo">
 
+    <Button
+        android:id="@+id/matchInfoNext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/next"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
+
     <TextView
         android:id="@+id/prematchtext"
         android:layout_width="wrap_content"
@@ -19,23 +29,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout4"
+    <TableLayout
+        android:id="@+id/tableLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/prematchtext">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <TextView
-                android:layout_width="200dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/team_number"
@@ -43,21 +50,20 @@
 
             <EditText
                 android:id="@+id/teamNumber"
-                android:layout_width="400dp"
-                android:layout_height="100dp"
-                android:layout_marginStart="5dp"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
                 android:hint="@string/teamNumberHint"
                 android:inputType="number"
                 android:textSize="24sp" />
-        </LinearLayout>
+        </TableRow>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <TextView
-                android:layout_width="200dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/match_number"
@@ -65,22 +71,20 @@
 
             <EditText
                 android:id="@+id/matchNumber"
-                android:layout_width="400dp"
-                android:layout_height="100dp"
-                android:layout_marginStart="5dp"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
                 android:hint="@string/matchNumberHint"
                 android:inputType="number"
                 android:textSize="24sp" />
+        </TableRow>
 
-        </LinearLayout>
-
-        <LinearLayout
+        <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_height="match_parent">
 
             <TextView
-                android:layout_width="200dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/scouter"
@@ -88,24 +92,18 @@
 
             <EditText
                 android:id="@+id/scoutName"
-                android:layout_width="400dp"
-                android:layout_height="100dp"
-                android:layout_marginStart="5dp"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
                 android:hint="@string/scoutNameHint"
                 android:imeOptions="actionDone"
                 android:inputType="text|textNoSuggestions"
                 android:textSize="24sp" />
-        </LinearLayout>
+        </TableRow>
 
-        <Button
-            android:id="@+id/matchInfoNext"
-            android:layout_width="300dp"
-            android:layout_height="100dp"
-            android:text="@string/next"
-            android:textSize="24sp"
-            tools:layout_editor_absoluteX="-267dp"
-            tools:layout_editor_absoluteY="447dp" />
-
-    </LinearLayout>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </TableLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,6 +9,7 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.team2718.scoutingappcharm.R
 import com.team2718.scoutingappcharm.SharedViewModel
 
@@ -21,6 +22,12 @@ class FragmentScoutingTeleop : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         var view = inflater.inflate(R.layout.fragment_scouting_teleop, container, false)
+
+        if (viewModel.doPageSkipping && viewModel.currentReport.stagesComplete!! >= 3) {
+//            findNavController().navigate(R.id.nav_scouting_auto)
+        } else {
+            viewModel.doPageSkipping = false
+        }
 
         return view
     }
