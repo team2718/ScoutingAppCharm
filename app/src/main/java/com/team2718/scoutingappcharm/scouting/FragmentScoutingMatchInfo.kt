@@ -73,7 +73,7 @@ class FragmentScoutingMatchInfo : Fragment() {
             findNavController().navigate(R.id.nav_scouting_auto)
         }
 
-        if (viewModel.doPageSkipping && viewModel.currentReport.stagesComplete!! >= 1) {
+        if (viewModel.doPageSkipping && viewModel.currentReport.stagesComplete >= 1) {
             findNavController().navigate(R.id.nav_scouting_auto)
         } else {
             viewModel.doPageSkipping = false

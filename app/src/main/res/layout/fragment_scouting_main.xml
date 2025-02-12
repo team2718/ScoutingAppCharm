@@ -8,7 +8,7 @@
 
     <Button
         android:id="@+id/matchInfoNext"
-        android:layout_width="300dp"
+        android:layout_width="400dp"
         android:layout_height="100dp"
         android:layout_marginTop="32dp"
         android:text="@string/startReportButton"
@@ -19,7 +19,7 @@
 
     <Button
         android:id="@+id/continueReportButton"
-        android:layout_width="300dp"
+        android:layout_width="400dp"
         android:layout_height="100dp"
         android:layout_marginTop="8dp"
         android:text="@string/continueReportButton"
@@ -36,16 +36,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/continueReportButton" />
-
-    <Button
-        android:id="@+id/editReportButton"
-        android:layout_width="300dp"
-        android:layout_height="100dp"
-        android:layout_marginBottom="24dp"
-        android:text="@string/editReportButton"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

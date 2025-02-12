@@ -12,6 +12,9 @@ interface ScoutingReportDao {
     @Query("SELECT * FROM reports")
     fun getAll(): List<ScoutingReport>
 
+    @Query("SELECT * FROM reports WHERE stages_complete LIKE 4")
+    fun getAllComplete(): List<ScoutingReport>
+
     @Query("SELECT * FROM reports WHERE uid LIKE :uid")
     fun loadId(uid: Int): ScoutingReport?
 

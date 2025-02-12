@@ -45,9 +45,6 @@ class FragmentScoutingMain : Fragment() {
             findNavController().navigate(R.id.nav_scouting_match_info)
         }
 
-        // TODO: Implement
-        view.findViewById<Button>(R.id.editReportButton).isEnabled = false
-
         return view
     }
 }

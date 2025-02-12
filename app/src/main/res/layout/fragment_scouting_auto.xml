@@ -10,23 +10,11 @@
         android:id="@+id/movedCheckbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
+        android:buttonTint="@color/teal_700"
         android:text="@string/Amoved"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/autoScoringLabel" />
-
-    <TextView
-        android:id="@+id/autoScoringLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="Auto Scoring"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textSize="25sp"
-        android:textStyle="bold"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -37,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:text="@string/next"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout"
         app:layout_constraintHorizontal_bias="0.76"
@@ -69,7 +57,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="@string/AL4Scored"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
 
                 <com.team2718.scoutingappcharm.custom.CounterView
                     android:id="@+id/counterL4"
@@ -89,7 +77,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="@string/AL3Scored"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
 
                 <com.team2718.scoutingappcharm.custom.CounterView
                     android:id="@+id/counterL3"
@@ -109,7 +97,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="@string/AL2Scored"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
 
                 <com.team2718.scoutingappcharm.custom.CounterView
                     android:id="@+id/counterL2"
@@ -128,7 +116,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="@string/AL1Scored"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
 
                 <com.team2718.scoutingappcharm.custom.CounterView
                     android:id="@+id/counterL1"
@@ -145,13 +133,6 @@
             android:layout_marginStart="16dp">
 
             <TableRow
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center">
-
-            </TableRow>
-
-            <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center">
@@ -161,7 +142,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="@string/Aalgae_processor_scored"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
 
                 <com.team2718.scoutingappcharm.custom.CounterView
                     android:id="@+id/counterProcessed"
@@ -180,7 +161,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="@string/Aalgae_barge_scored"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
 
                 <com.team2718.scoutingappcharm.custom.CounterView
                     android:id="@+id/counterBarged"

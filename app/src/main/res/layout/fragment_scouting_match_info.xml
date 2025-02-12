@@ -11,31 +11,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/next"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
-
-    <TextView
-        android:id="@+id/prematchtext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="16dp"
-        android:text="@string/prematch"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textSize="25sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TableLayout
         android:id="@+id/tableLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/prematchtext">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TableRow
             android:layout_width="match_parent"
@@ -46,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/team_number"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/teamNumber"
@@ -55,7 +43,7 @@
                 android:layout_marginStart="20dp"
                 android:hint="@string/teamNumberHint"
                 android:inputType="number"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
         </TableRow>
 
         <TableRow
@@ -67,7 +55,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/match_number"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/matchNumber"
@@ -76,7 +64,7 @@
                 android:layout_marginStart="20dp"
                 android:hint="@string/matchNumberHint"
                 android:inputType="number"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
         </TableRow>
 
         <TableRow
@@ -88,7 +76,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/scouter"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/scoutName"
@@ -98,7 +86,7 @@
                 android:hint="@string/scoutNameHint"
                 android:imeOptions="actionDone"
                 android:inputType="text|textNoSuggestions"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
         </TableRow>
 
         <TableRow

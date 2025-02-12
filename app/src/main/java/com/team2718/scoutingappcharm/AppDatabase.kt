@@ -5,7 +5,7 @@ import androidx.room.RoomDatabase
 import com.team2718.scoutingappcharm.dao.ScoutingReportDao
 import com.team2718.scoutingappcharm.data_entity.ScoutingReport
 
-@Database(entities = [ScoutingReport::class], version = 10, exportSchema = false)
+@Database(entities = [ScoutingReport::class], version = 11, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun scoutingReportDao(): ScoutingReportDao
 }

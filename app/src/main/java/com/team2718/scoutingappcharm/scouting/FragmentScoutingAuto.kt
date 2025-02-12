@@ -23,6 +23,7 @@ class FragmentScoutingAuto : Fragment() {
     private lateinit var counterL2: CounterView
     private lateinit var counterL3: CounterView
     private lateinit var counterL4: CounterView
+
     private lateinit var counterProcessed: CounterView
     private lateinit var counterBarged: CounterView
     private lateinit var movedCheckbox: CheckBox
@@ -36,15 +37,17 @@ class FragmentScoutingAuto : Fragment() {
         counterL2 = view.findViewById(R.id.counterL2)
         counterL3 = view.findViewById(R.id.counterL3)
         counterL4 = view.findViewById(R.id.counterL4)
+
         counterProcessed = view.findViewById(R.id.counterProcessed)
         counterBarged = view.findViewById(R.id.counterBarged)
+
         movedCheckbox = view.findViewById(R.id.movedCheckbox)
 
         populateView()
 
         view.findViewById<Button>(R.id.autoNext).setOnClickListener { next() }
 
-        if (viewModel.doPageSkipping && viewModel.currentReport.stagesComplete!! >= 2) {
+        if (viewModel.doPageSkipping && viewModel.currentReport.stagesComplete >= 2) {
             findNavController().navigate(R.id.nav_scouting_teleop)
         } else {
             viewModel.doPageSkipping = false
@@ -58,8 +61,10 @@ class FragmentScoutingAuto : Fragment() {
         counterL2.setValue(viewModel.currentReport.autoL2)
         counterL3.setValue(viewModel.currentReport.autoL3)
         counterL4.setValue(viewModel.currentReport.autoL4)
+
         counterProcessed.setValue(viewModel.currentReport.autoNumProcessed)
         counterBarged.setValue(viewModel.currentReport.autoNumNetFromRobot)
+
         movedCheckbox.isChecked = viewModel.currentReport.didLeave == true
     }
 
@@ -69,10 +74,10 @@ class FragmentScoutingAuto : Fragment() {
         viewModel.currentReport.autoL3 = counterL3.getValue()
         viewModel.currentReport.autoL4 = counterL4.getValue()
 
-        viewModel.currentReport.didLeave = movedCheckbox.isChecked
-
         viewModel.currentReport.autoNumProcessed = counterProcessed.getValue()
         viewModel.currentReport.autoNumNetFromRobot = counterBarged.getValue()
+
+        viewModel.currentReport.didLeave = movedCheckbox.isChecked
     }
 
     private fun next() {
@@ -86,14 +91,6 @@ class FragmentScoutingAuto : Fragment() {
         viewModel.updateDB()
 
         findNavController().navigate(R.id.nav_scouting_teleop)
-    }
-
-    private fun getIntFromTextView(textView: TextView?): Int {
-        val rawText = textView?.text.toString()
-        if (rawText == "")
-            return 0
-        else
-            return Integer.valueOf(rawText)
     }
 
     override fun onPause() {
