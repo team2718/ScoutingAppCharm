@@ -46,6 +46,7 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
 
     fun clearReport() {
         currentReport = noneReport
+        prefs.edit().remove("current_report").apply()
     }
 
     fun getCompleteReports(): List<ScoutingReport> {

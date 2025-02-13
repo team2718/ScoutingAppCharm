@@ -1,10 +1,11 @@
 package com.team2718.scoutingappcharm.data_entity
-
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.Index
 import androidx.room.PrimaryKey
+import kotlinx.serialization.Serializable
 
+@Serializable
 @Entity(indices = [Index(value = ["team_number"])], tableName = "reports")
 data class ScoutingReport (
     @PrimaryKey var uid: Int,
@@ -13,9 +14,8 @@ data class ScoutingReport (
     @ColumnInfo(name = "team_number") var teamNumber: Int = 0,
     @ColumnInfo(name = "match_number") var matchNumber: Int = 0,
     @ColumnInfo(name = "scout_name") var scoutName: String = "",
-
+    @ColumnInfo(name = "unix_time_complete") var unixTimeComplete: Int = 0, // Time the report was finished in unix time stamp
     @ColumnInfo(name = "stages_complete") var stagesComplete: Int = 0, // 0=New, 1=Match Info, 2=Auto, etc.
-    @ColumnInfo(name = "has_been_scanned") var hasBeenScanned: Boolean = false, // Was the QR code for this match scanned?
 
     // Robot Abilities
     @ColumnInfo(name = "can_coral_station_intake") var canCoralStationIntake: Boolean = false,
@@ -46,5 +46,5 @@ data class ScoutingReport (
 
     // Endgame
     // Hang (0 = No Hang, 1 = Park, 2 = Shallow, 3 = Deep)
-    @ColumnInfo(name = "hang_type") var hang_type: Int = 0
+    @ColumnInfo(name = "hang_type") var hang_type: Int = 0,
 )

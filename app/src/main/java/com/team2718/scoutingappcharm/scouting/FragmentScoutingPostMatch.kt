@@ -38,7 +38,7 @@ class FragmentScoutingPostMatch : Fragment() {
 
         populateView()
 
-        view.findViewById<Button>(R.id.submit).setOnClickListener { submit() }
+        view.findViewById<Button>(R.id.submit).setOnClickListener { submit(view.findViewById<EditText>(R.id.text_notes).text.toString()) }
 
         // This is the last page, stop skipping
         viewModel.doPageSkipping = false
@@ -54,11 +54,14 @@ class FragmentScoutingPostMatch : Fragment() {
 
     }
 
-    private fun submit() {
+    private fun submit(notes: String) {
         writeToViewModel()
 
         // Set report as complete
         viewModel.currentReport.stagesComplete = 4
+        viewModel.currentReport.unixTimeComplete = (System.currentTimeMillis() / 1000).toInt()
+        viewModel.currentReport.notes = notes
+
         viewModel.updateDB()
         viewModel.clearReport()
 

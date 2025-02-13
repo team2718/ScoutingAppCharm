@@ -12,16 +12,16 @@ interface ScoutingReportDao {
     @Query("SELECT * FROM reports")
     fun getAll(): List<ScoutingReport>
 
-    @Query("SELECT * FROM reports WHERE stages_complete LIKE 4")
+    @Query("SELECT * FROM reports WHERE stages_complete = 4 ORDER BY unix_time_complete DESC")
     fun getAllComplete(): List<ScoutingReport>
 
-    @Query("SELECT * FROM reports WHERE uid LIKE :uid")
+    @Query("SELECT * FROM reports WHERE uid = :uid")
     fun loadId(uid: Int): ScoutingReport?
 
     @Query("SELECT * FROM reports WHERE uid IN (:reportIds)")
     fun loadAllByIds(reportIds: IntArray): List<ScoutingReport>
 
-    @Query("SELECT * FROM reports WHERE team_number LIKE :teamNumber")
+    @Query("SELECT * FROM reports WHERE team_number = :teamNumber")
     fun findByTeamNumber(teamNumber: Int): List<ScoutingReport>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
