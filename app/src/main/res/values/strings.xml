@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">ScoutingAppCharm</string>
+    <string name="navbar_scouting">Scouting</string>
     <string name="circle">🔴</string>
     <string name="next">Next</string>
     <string name="back">Back</string>
@@ -40,6 +41,7 @@
     <string name="postmatch">Post Match</string>
     <string name="gen_notes">General Notes</string>
     <string name="submit">Submit</string>
+    <string name="navbar_sync">Sync</string>
     <string-array name="offensiveSkillItems">
         <item>1</item>
         <item>2</item>
@@ -54,4 +56,44 @@
         <item>4</item>
         <item>5</item>
     </string-array>
+    <string-array name="allianceSide">
+        <item>Red</item>
+        <item>Blue</item>
+    </string-array>
+    <string-array name="startingPos">
+        <item>Left</item>
+        <item>Middle</item>
+        <item>Right</item>
+    </string-array>
+    <string-array name="hangTypes">
+        <item>None</item>
+        <item>Park</item>
+        <item>Shallow</item>
+        <item>Deep</item>
+    </string-array>
+    <string-array name="cardTypes">
+        <item>None</item>
+        <item>Yellow</item>
+        <item>Red</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="scouter">Scout</string>
+    <string name="scoutNameHint">Euler</string>
+    <string name="matchNumberHint">1</string>
+    <string name="teamNumberHint">2718</string>
+    <string name="startReportButton">New Report</string>
+    <string name="navbar_auto">Auto</string>
+    <string name="navbar_teleop">Teleop</string>
+    <string name="continueReportButton">Continue Report</string>
+    <string name="editReportButton">Edit Report</string>
+    <string name="navbar_scouting_match_info">Match Info</string>
+    <string name="continue_report_subtext">Match %d  Team %d</string>
+    <string name="alliance">Alliance</string>
+    <string name="startPos">Starting Position</string>
+    <string name="hang">Hang</string>
+    <string name="cards">Cards Revieded</string>
+    <string name="Talgae_human_scored">Algae Human Scored</string>
+    <string name="navbar_post_match">Post Match</string>
+    <string name="saved_matches">Saved Matches</string>
 </resources>

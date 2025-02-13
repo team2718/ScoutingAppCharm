@@ -1,14 +1,17 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("com.google.devtools.ksp")
+    id("org.jetbrains.kotlin.plugin.serialization")
+    alias(libs.plugins.compose.compiler)
 }
 
 android {
-    namespace = "com.example.scoutingappcharm"
+    namespace = "com.team2718.scoutingappcharm"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.scoutingappcharm"
+        applicationId = "com.team2718.scoutingappcharm"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
@@ -33,6 +36,9 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+    kotlin {
+        jvmToolchain(8)
+    }
     kotlinOptions {
         jvmTarget = "1.8"
     }
@@ -50,6 +56,9 @@ android {
 }
 
 dependencies {
+    implementation(libs.androidx.room.runtime)
+    ksp(libs.androidx.room.compiler)
+    implementation(libs.androidx.room.ktx)
     implementation(libs.zxing.core)  // ZXing core library
     implementation(libs.zxing.android.embedded)  // ZXing Android helpers
     implementation(libs.androidx.core.ktx)
@@ -61,6 +70,10 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.material)
+    implementation(libs.androidx.navigation.fragment)
+    implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.androidx.room.ktx)
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

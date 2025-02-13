@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center">
+
+    <Button
+        android:id="@+id/btn_minus"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:insetTop="3dp"
+        android:insetBottom="3dp"
+        android:minHeight="40dip"
+        android:text="-"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/text_counter"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:gravity="center"
+        android:text="0"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/btn_plus"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:insetTop="3dp"
+        android:insetBottom="3dp"
+        android:minHeight="40dip"
+        android:text="+"
+        android:textSize="20sp" />
+
+</LinearLayout>
