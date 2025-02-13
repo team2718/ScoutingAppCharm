@@ -96,7 +96,7 @@ class MainActivity : ComponentActivity() {
 
         var pageNum = 1
 
-        var tL4ScoredInt = "0"
+        var aL4ScoredInt: Int = 0
 
         val submit = findViewById<Button>(R.id.Submit)
 
@@ -118,7 +118,8 @@ class MainActivity : ComponentActivity() {
         val AL1Scored = findViewById<TextInputEditText>(R.id.AL1Scored)
         val AL2Scored = findViewById<TextInputEditText>(R.id.AL2Scored)
         val AL3Scored = findViewById<TextInputEditText>(R.id.AL3Scored)
-        val AL4Scored = findViewById<Button>(R.id.AL4Scored)
+        val AL4ScoredPlus = findViewById<Button>(R.id.AL4ScoredPlus)
+        val AL4ScoredMinus = findViewById<Button>(R.id.AL4ScoredMinus)
         val Aalgae_barge_scored = findViewById<TextInputEditText>(R.id.Aalgae_barge_scored)
         val Aalgae_processor_scored = findViewById<TextInputEditText>(R.id.Aalgae_processor_scored)
         val Afoul = findViewById<TextInputEditText>(R.id.Afoul)
@@ -165,14 +166,14 @@ class MainActivity : ComponentActivity() {
                     "Auto L1 Scored: ${AL1Scored.text}\n" +
                     "Auto L2 Scored: ${AL2Scored.text}\n" +
                     "Auto L3 Scored: ${AL3Scored.text}\n" +
-                    "Auto L4 Scored: ${AL4Scored.text}\n" +
+                    "Auto L4 Scored: ${"@+id/AL4Text"}\n" +
                     "Auto Algae Barge Scored: ${Aalgae_barge_scored.text}\n" +
                     "Auto Algae Processor Scored: ${Aalgae_processor_scored.text}\n" +
                     "Auto Algae Dislodged: ${Adislodged_algae.isChecked}\n" +
                     "Auto Foul: ${Afoul.text}\n" +
                     "\n" +
                     "Teleop Dislodged Algae: ${Tdislodged_algae.isChecked}\n" +
-                    "Teleop L1 Scored: ${tL4ScoredInt.toString()}\n" +
+                    "Teleop L1 Scored: ${TL1Scored.text}\n" +
                     "Teleop L2 Scored: ${TL2Scored.text}\n" +
                     "Teleop L3 Scored: ${TL3Scored.text}\n" +
                     "Teleop L4 Scored: ${TL4Scored.text}\n" +
@@ -276,11 +277,21 @@ class MainActivity : ComponentActivity() {
         }
 
 
-        AL1Scored.setOnClickListener {
-            tL4ScoredInt.toInt()
-            tL4ScoredInt += 1
-            tL4ScoredInt.toString()
-            findViewById<TextView>(R.id.AL4Text).text = tL4ScoredInt
+        AL4ScoredPlus.setOnClickListener {
+            aL4ScoredInt.toInt()
+            aL4ScoredInt += 1
+            aL4ScoredInt.toString()
+            findViewById<TextView>(R.id.AL4Text).text = aL4ScoredInt.toString()
+        }
+
+        AL4ScoredMinus.setOnClickListener {
+            aL4ScoredInt.toInt()
+            aL4ScoredInt -= 1
+            if (aL4ScoredInt < 0) {
+                aL4ScoredInt = 0
+            }
+            aL4ScoredInt.toString()
+            findViewById<TextView>(R.id.AL4Text).text = aL4ScoredInt.toString()
         }
     }
 

@@ -375,7 +375,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:visibility="gone"
+        android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -503,7 +503,7 @@
         android:id="@+id/auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="visible"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -559,26 +559,34 @@
                 android:inputType="number" />
 
             <Button
-                android:id="@+id/AL4Scored"
-                android:layout_width="30dp"
+                android:id="@+id/AL4ScoredPlus"
+                android:layout_width="40dp"
                 android:layout_height="40dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginBottom="0dp"
                 android:gravity="center"
+                android:inputType="number"
                 android:text="+"
-                android:inputType="number" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent" />
+
+            <Button
+                android:id="@+id/AL4ScoredMinus"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginBottom="0dp"
+                android:gravity="center"
+                android:inputType="number"
+                android:text="-"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent" />
 
             <TextView
                 android:id="@+id/AL4Text"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="0"/>
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/Aalgae_barge_scored"
-                android:layout_width="250dp"
-                android:layout_height="50dp"
-                android:gravity="center"
-                android:hint="@string/Aalgae_barge_scored"
-                android:inputType="number" />
+                android:text="0" />
 
         </LinearLayout>
 
@@ -590,6 +598,15 @@
             android:orientation="vertical"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/Aalgae_barge_scored"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="45dp"
+                android:gravity="center"
+                android:hint="@string/Aalgae_barge_scored"
+                android:inputType="number" />
 
             <TextView
                 android:id="@+id/textView"
@@ -622,7 +639,6 @@
                 android:gravity="center"
                 android:hint="@string/Afoul"
                 android:inputType="number" />
-
 
 
         </LinearLayout>
