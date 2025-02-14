@@ -17,7 +17,7 @@
     <string name="AL1Scored">L1 Scored</string>
     <string name="AL2Scored">L2 Scored</string>
     <string name="AL3Scored">L3 Scored</string>
-    <string name="AL4Scored">+</string>
+    <string name="AL4Scored">L4 Scored</string>
     <string name="Aalgae_barge_scored">Algae Barge Scored</string>
     <string name="Aalgae_processor_scored">Algae Processor Scored</string>
     <string name="Adislodged_algae">Dislodged Algae?</string>
@@ -56,11 +56,25 @@
         <item>4</item>
         <item>5</item>
     </string-array>
+    <string-array name="allianceSides">
+        <item>Red</item>
+        <item>Blue</item>
+    </string-array>
     <string-array name="hangTypes">
         <item>None</item>
         <item>Park</item>
         <item>Shallow</item>
         <item>Deep</item>
+    </string-array>
+    <string-array name="startPosTypes">
+        <item>Left</item>
+        <item>Middle</item>
+        <item>Right</item>
+    </string-array>
+    <string-array name="cardTypes">
+        <item>None</item>
+        <item>Yellow</item>
+        <item>Red</item>
     </string-array>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -76,7 +90,10 @@
     <string name="navbar_scouting_match_info">Match Info</string>
     <string name="continue_report_subtext">Match %d  Team %d</string>
     <string name="hang">Hang</string>
+    <string name="startpos">Starting Position</string>
     <string name="Talgae_human_scored">Algae Human Scored</string>
     <string name="navbar_post_match">Post Match</string>
     <string name="saved_matches">Saved Matches</string>
+    <string name="alliance">Alliance</string>
+    <string name="cards">Cards Recieved</string>
 </resources>
