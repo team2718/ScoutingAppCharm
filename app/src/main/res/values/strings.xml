@@ -60,15 +60,17 @@
         <item>Blue</item>
     </string-array>
     <string-array name="startingPos">
-        <item>Left</item>
+        <item>Processor-Side</item>
         <item>Middle</item>
-        <item>Right</item>
+        <item>Other-Side</item>
     </string-array>
     <string-array name="hangTypes">
         <item>None</item>
         <item>Park</item>
         <item>Shallow</item>
         <item>Deep</item>
+        <item>Shallow Failed</item>
+        <item>Deep Failed</item>
     </string-array>
     <string-array name="cardTypes">
         <item>None</item>
@@ -91,8 +93,9 @@
     <string name="alliance">Alliance</string>
     <string name="startPos">Starting Position</string>
     <string name="hang">Hang</string>
-    <string name="cards">Cards Received</string>
+    <string name="cards">Card Received</string>
     <string name="Talgae_human_scored">Algae Human Scored</string>
     <string name="navbar_post_match">Post Match</string>
     <string name="saved_matches">Saved Matches</string>
+    <string name="Talgae_human_missed">Algae Human Missed</string>
 </resources>

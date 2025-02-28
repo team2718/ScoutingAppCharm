@@ -22,11 +22,6 @@ data class ScoutingReport (
     @ColumnInfo(name = "stages_complete") var stagesComplete: Int = 0, // 0=New, 1=Match Info, 2=Auto, etc.
 
     // Robot Abilities
-    @ColumnInfo(name = "can_coral_station_intake") var canCoralStationIntake: Boolean = false,
-    @ColumnInfo(name = "can_coral_floor_intake") var canCoralFloorIntake: Boolean = false,
-    @ColumnInfo(name = "can_algae_reef_intake") var canAlgaeReefIntake: Boolean = false,
-    @ColumnInfo(name = "can_algae_reef_remove") var canAlgaeReefRemove: Boolean = false,
-    @ColumnInfo(name = "can_algae_floor_intake") var canAlgaeFloorIntake: Boolean = false,
     @ColumnInfo(name = "notes") var notes: String = "",
 
     // Auto
@@ -47,10 +42,10 @@ data class ScoutingReport (
     @ColumnInfo(name = "teleop_L2") var teleopL2: Int = 0,
     @ColumnInfo(name = "teleop_L3") var teleopL3: Int = 0,
     @ColumnInfo(name = "teleop_L4") var teleopL4: Int = 0,
-    // Hang (0 = No Hang, 1 = Park, 2 = Shallow, 3 = Deep)
-    @ColumnInfo(name = "hang_type") var hang_type: Int = 0,
+    // Hang (0 = No Hang, 1 = Park, 2 = Shallow, 3 = Deep, 4 = Shallow Failed, 5 = Deep Failed)
+    @ColumnInfo(name = "hang_type") var hangType: Int = 0,
 
     // Endgame
     // Cards Received (0 = None, 1 = Yellow, 2 = Red)
-    @ColumnInfo(name = "cards_received") var cardsReceived: Int = 0,
+    @ColumnInfo(name = "card_received") var cardReceived: Int = 0,
 )

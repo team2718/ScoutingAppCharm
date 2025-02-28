@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Spinner
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -25,11 +26,15 @@ class FragmentScoutingMatchInfo : Fragment() {
         var teamNumber = view.findViewById<EditText>(R.id.teamNumber)
         var matchNumber = view.findViewById<EditText>(R.id.matchNumber)
         var scoutName = view.findViewById<EditText>(R.id.scoutName)
+        var alliance = view.findViewById<Spinner>(R.id.alliance)
+        var startingPosition = view.findViewById<Spinner>(R.id.starting_position)
 
         if (!viewModel.shouldMakeNewReport && viewModel.currentReport.stagesComplete != 0) {
             teamNumber.setText(viewModel.currentReport.teamNumber.toString())
             matchNumber.setText(viewModel.currentReport.matchNumber.toString())
             scoutName.setText(viewModel.currentReport.scoutName)
+            alliance.setSelection(viewModel.currentReport.alliance)
+            startingPosition.setSelection(viewModel.currentReport.startingPosition)
         }
 
         view.findViewById<Button>(R.id.matchInfoNext).setOnClickListener {
@@ -62,6 +67,8 @@ class FragmentScoutingMatchInfo : Fragment() {
             viewModel.currentReport.matchNumber = getIntFromTextView(matchNumber)
             viewModel.currentReport.teamNumber = getIntFromTextView(teamNumber)
             viewModel.currentReport.scoutName = scoutName?.text.toString()
+            viewModel.currentReport.startingPosition = startingPosition.selectedItemPosition
+            viewModel.currentReport.alliance = alliance.selectedItemPosition
 
             // Increment stages complete
             if (viewModel.currentReport.stagesComplete == 0) {
@@ -92,11 +99,5 @@ class FragmentScoutingMatchInfo : Fragment() {
 
     override fun onPause() {
         super.onPause()
-
-//        viewModel.currentReport.matchNumber = getIntFromTextView(matchNumber)
-//        viewModel.currentReport.teamNumber = getIntFromTextView(teamNumber)
-//        viewModel.currentReport.scoutName = scoutName?.text.toString()
-//
-//        viewModel.updateDB()
     }
 }

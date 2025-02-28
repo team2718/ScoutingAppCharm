@@ -28,6 +28,7 @@ class FragmentScoutingTeleop : Fragment() {
     private lateinit var counterProcessed: CounterView
     private lateinit var counterBarged: CounterView
     private lateinit var counterHuman: CounterView
+    private lateinit var counterMissed: CounterView
 
     private lateinit var hangSpinner: Spinner
 
@@ -44,6 +45,7 @@ class FragmentScoutingTeleop : Fragment() {
         counterProcessed = view.findViewById(R.id.counterProcessed)
         counterBarged = view.findViewById(R.id.counterBarged)
         counterHuman = view.findViewById(R.id.counterHumanScored)
+        counterMissed = view.findViewById(R.id.counterHumanMissed)
 
         hangSpinner = view.findViewById(R.id.spinner)
 
@@ -69,8 +71,9 @@ class FragmentScoutingTeleop : Fragment() {
         counterProcessed.setValue(viewModel.currentReport.teleopNumProcessed)
         counterBarged.setValue(viewModel.currentReport.teleopNumNetFromRobot)
         counterHuman.setValue(viewModel.currentReport.teleopNumNetFromHuman)
+        counterMissed.setValue(viewModel.currentReport.teleopNumNetMissedHuman)
 
-        hangSpinner.setSelection(viewModel.currentReport.hang_type)
+        hangSpinner.setSelection(viewModel.currentReport.hangType)
     }
 
     private fun writeToViewModel() {
@@ -82,8 +85,10 @@ class FragmentScoutingTeleop : Fragment() {
         viewModel.currentReport.teleopNumProcessed = counterProcessed.getValue()
         viewModel.currentReport.teleopNumNetFromRobot = counterBarged.getValue()
         viewModel.currentReport.teleopNumNetFromHuman = counterHuman.getValue()
+        viewModel.currentReport.teleopNumNetMissedHuman = counterMissed.getValue()
 
-        viewModel.currentReport.hang_type = hangSpinner.selectedItemPosition
+
+        viewModel.currentReport.hangType = hangSpinner.selectedItemPosition
     }
 
     private fun next() {

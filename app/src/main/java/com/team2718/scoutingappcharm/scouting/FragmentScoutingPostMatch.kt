@@ -20,25 +20,20 @@ class FragmentScoutingPostMatch : Fragment() {
 
     val viewModel: SharedViewModel by activityViewModels()
 
-    private lateinit var counterL1: CounterView
-    private lateinit var counterL2: CounterView
-    private lateinit var counterL3: CounterView
-    private lateinit var counterL4: CounterView
-
-    private lateinit var counterProcessed: CounterView
-    private lateinit var counterBarged: CounterView
-    private lateinit var counterHuman: CounterView
-
-    private lateinit var hangSpinner: Spinner
+    private lateinit var notes: TextView
+    private lateinit var cardSpinner: Spinner
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_scouting_post_match, container, false)
 
+        notes = view.findViewById(R.id.text_notes)
+        cardSpinner = view.findViewById(R.id.card_received)
+
         populateView()
 
-        view.findViewById<Button>(R.id.submit).setOnClickListener { submit(view.findViewById<EditText>(R.id.text_notes).text.toString()) }
+        view.findViewById<Button>(R.id.submit).setOnClickListener { submit() }
 
         // This is the last page, stop skipping
         viewModel.doPageSkipping = false
@@ -47,20 +42,21 @@ class FragmentScoutingPostMatch : Fragment() {
     }
 
     private fun populateView() {
-
+        cardSpinner.setSelection(viewModel.currentReport.cardReceived)
+        notes.text = viewModel.currentReport.notes
     }
 
     private fun writeToViewModel() {
-
+        viewModel.currentReport.cardReceived = cardSpinner.selectedItemPosition
+        viewModel.currentReport.notes = notes.text.toString()
     }
 
-    private fun submit(notes: String) {
+    private fun submit() {
         writeToViewModel()
 
         // Set report as complete
         viewModel.currentReport.stagesComplete = 4
         viewModel.currentReport.unixTimeComplete = (System.currentTimeMillis() / 1000).toInt()
-        viewModel.currentReport.notes = notes
 
         viewModel.updateDB()
         viewModel.clearReport()
