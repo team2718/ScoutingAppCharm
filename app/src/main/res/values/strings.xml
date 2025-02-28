@@ -61,9 +61,9 @@
         <item>Blue</item>
     </string-array>
     <string-array name="startingPos">
-        <item>Processor-Side</item>
+        <item>Processor Side</item>
         <item>Middle</item>
-        <item>Other-Side</item>
+        <item>Other Side</item>
     </string-array>
     <string-array name="hangTypes">
         <item>None</item>
@@ -100,4 +100,6 @@
     <string name="saved_matches">Saved Matches</string>
     <string name="Talgae_human_missed">Algae Human Missed</string>
     <string name="delete">Delete</string>
+    <string name="navbar_qr_code">QR Viewer</string>
+    <string name="edit">Edit</string>
 </resources>

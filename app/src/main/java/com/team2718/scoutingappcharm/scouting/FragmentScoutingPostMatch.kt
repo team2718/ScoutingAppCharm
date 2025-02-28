@@ -54,9 +54,14 @@ class FragmentScoutingPostMatch : Fragment() {
     private fun submit() {
         writeToViewModel()
 
+        // If the report isn't already complete, set the timestamp
+        // This is in case of editing
+        if (viewModel.currentReport.stagesComplete != 4) {
+            viewModel.currentReport.unixTimeComplete = (System.currentTimeMillis() / 1000).toInt()
+        }
+
         // Set report as complete
         viewModel.currentReport.stagesComplete = 4
-        viewModel.currentReport.unixTimeComplete = (System.currentTimeMillis() / 1000).toInt()
 
         viewModel.updateDB()
         viewModel.clearReport()

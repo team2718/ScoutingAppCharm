@@ -6,6 +6,7 @@ import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.room.Room
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.team2718.scoutingappcharm.data_entity.ScoutingReport
 import kotlinx.coroutines.launch
 import kotlin.random.Random
@@ -24,6 +25,8 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
 
     var viewReportList: List<ScoutingReport>? = null
     var viewReportIndex: Int = 0
+
+    lateinit var bottomNavigationView: BottomNavigationView
 
     fun updateDB(blocking: Boolean = false) {
         if (blocking) {

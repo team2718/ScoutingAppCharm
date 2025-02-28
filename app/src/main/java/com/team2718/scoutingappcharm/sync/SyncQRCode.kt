@@ -16,6 +16,7 @@ import androidx.navigation.fragment.findNavController
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.EncodeHintType
 import com.google.zxing.qrcode.QRCodeWriter
+import com.team2718.scoutingappcharm.MainActivity
 import com.team2718.scoutingappcharm.R
 import com.team2718.scoutingappcharm.SharedViewModel
 import com.team2718.scoutingappcharm.data_entity.ScoutingReport
@@ -59,6 +60,27 @@ class SyncQRCode : Fragment() {
                 DialogInterface.OnClickListener { dialog, which ->
                     viewModel.deleteReport(report)
                     findNavController().popBackStack()
+                })
+            alertDialogBuilder.setNegativeButton("Cancel",
+                DialogInterface.OnClickListener { dialog, which ->})
+
+            val dialog: AlertDialog = alertDialogBuilder.create()
+            dialog.show()
+        }
+
+        view.findViewById<Button>(R.id.edit_button).setOnClickListener{
+            val alertDialogBuilder = AlertDialog.Builder(view.context)
+            alertDialogBuilder.setCancelable(true)
+            alertDialogBuilder.setTitle("Edit Report")
+            alertDialogBuilder.setMessage("Are you sure you want to edit this report?")
+            alertDialogBuilder.setPositiveButton("Edit",
+                DialogInterface.OnClickListener { dialog, which ->
+                    viewModel.currentReport = report
+                    findNavController().popBackStack()
+                    viewModel.bottomNavigationView.selectedItemId = R.id.nav_scouting
+                    viewModel.doPageSkipping = false
+                    viewModel.shouldMakeNewReport = false
+                    findNavController().navigate(R.id.nav_scouting_match_info)
                 })
             alertDialogBuilder.setNegativeButton("Cancel",
                 DialogInterface.OnClickListener { dialog, which ->})
