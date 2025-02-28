@@ -17,7 +17,7 @@
     <string name="AL1Scored">L1 Scored</string>
     <string name="AL2Scored">L2 Scored</string>
     <string name="AL3Scored">L3 Scored</string>
-    <string name="AL4Scored">+</string>
+    <string name="AL4Scored">L4 Scored</string>
     <string name="Aalgae_barge_scored">Algae Barge Scored</string>
     <string name="Aalgae_processor_scored">Algae Processor Scored</string>
     <string name="Adislodged_algae">Dislodged Algae?</string>
@@ -37,7 +37,6 @@
     <string name="defended">Defended?</string>
     <string name="offense_skill">Offense Skill</string>
     <string name="defense_skill">Defense Skill</string>
-    <string name="cards_received">Any Cards Received</string>
     <string name="postmatch">Post Match</string>
     <string name="gen_notes">General Notes</string>
     <string name="submit">Submit</string>
@@ -92,7 +91,7 @@
     <string name="alliance">Alliance</string>
     <string name="startPos">Starting Position</string>
     <string name="hang">Hang</string>
-    <string name="cards">Cards Revieded</string>
+    <string name="cards">Cards Received</string>
     <string name="Talgae_human_scored">Algae Human Scored</string>
     <string name="navbar_post_match">Post Match</string>
     <string name="saved_matches">Saved Matches</string>
