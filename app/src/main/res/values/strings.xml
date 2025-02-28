@@ -3,6 +3,7 @@
     <string name="navbar_scouting">Scouting</string>
     <string name="circle">🔴</string>
     <string name="next">Next</string>
+    <string name="prev">Prev</string>
     <string name="back">Back</string>
     <string name="prematch">Prematch</string>
     <string name="endgame">Endgame</string>
@@ -98,4 +99,5 @@
     <string name="navbar_post_match">Post Match</string>
     <string name="saved_matches">Saved Matches</string>
     <string name="Talgae_human_missed">Algae Human Missed</string>
+    <string name="delete">Delete</string>
 </resources>

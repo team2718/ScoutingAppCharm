@@ -9,5 +9,14 @@
         android:id="@+id/nav_sync_view_matches"
         android:name="com.team2718.scoutingappcharm.sync.SyncViewMatches"
         android:label="@string/navbar_sync"
-        tools:layout="@layout/fragment_sync_view_matches" />
+        tools:layout="@layout/fragment_sync_view_matches" >
+        <action
+            android:id="@+id/action_nav_sync_view_matches_to_syncQRCode"
+            app:destination="@id/nav_sync_qr_code" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_sync_qr_code"
+        android:name="com.team2718.scoutingappcharm.sync.SyncQRCode"
+        android:label="fragment_sync_qrcode"
+        tools:layout="@layout/fragment_sync_qrcode" />
 </navigation>

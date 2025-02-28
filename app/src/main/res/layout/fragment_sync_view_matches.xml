@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".sync.SyncViewMatches"
-    android:id="@+id/frameLayout">
+    tools:context=".sync.SyncViewMatches">
 
 
     <ScrollView
@@ -27,5 +26,6 @@
             android:fillViewport="true"
             android:orientation="vertical" />
     </ScrollView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

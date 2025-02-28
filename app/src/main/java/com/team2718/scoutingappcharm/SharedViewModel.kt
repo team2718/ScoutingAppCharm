@@ -22,6 +22,9 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
     private val noneReport = ScoutingReport(0)
     var currentReport: ScoutingReport = noneReport
 
+    var viewReportList: List<ScoutingReport>? = null
+    var viewReportIndex: Int = 0
+
     fun updateDB(blocking: Boolean = false) {
         if (blocking) {
             updateDBHelper()
@@ -50,7 +53,14 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
     }
 
     fun getCompleteReports(): List<ScoutingReport> {
-        return scoutingReports.getAllComplete()
+        viewReportList = scoutingReports.getAllComplete()
+        return viewReportList.orEmpty()
+    }
+
+    fun deleteReport(report: ScoutingReport) {
+        // scoutingReports.delete(report)
+        report.stagesComplete = 100 // Deletion value - we don't actually want to delete any reports
+        scoutingReports.insertReplace(report)
     }
 
     init {
