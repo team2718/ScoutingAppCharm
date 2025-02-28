@@ -6,31 +6,57 @@
     android:layout_height="match_parent"
     tools:context=".scouting.FragmentScoutingPostMatch">
 
-    <Button
-        android:id="@+id/submit"
-        android:layout_width="400dp"
-        android:layout_height="100dp"
-        android:layout_marginBottom="16dp"
-        android:text="@string/submit"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/text_notes"
-        android:layout_width="0dp"
-        android:layout_height="300dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:gravity="start|top"
-        android:hint="Notes..."
-        android:inputType="textMultiLine"
-        android:maxLength="250"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="400dp"
+            android:layout_height="100dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginStart="16dp"
+            android:text="@string/submit"
+            android:textSize="24sp" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginStart="16dp"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/cards"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:entries="@array/cardTypes"
+                android:minHeight="48dp"
+                android:spinnerMode="dialog" />
+
+        </TableRow>
+
+        <EditText
+            android:id="@+id/text_notes"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="Notes..."
+            android:inputType="textMultiLine"
+            android:maxLength="250" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -17,7 +17,7 @@
     <string name="AL1Scored">L1 Scored</string>
     <string name="AL2Scored">L2 Scored</string>
     <string name="AL3Scored">L3 Scored</string>
-    <string name="AL4Scored">+</string>
+    <string name="AL4Scored">L4 Scored</string>
     <string name="Aalgae_barge_scored">Algae Barge Scored</string>
     <string name="Aalgae_processor_scored">Algae Processor Scored</string>
     <string name="Adislodged_algae">Dislodged Algae?</string>
@@ -37,7 +37,6 @@
     <string name="defended">Defended?</string>
     <string name="offense_skill">Offense Skill</string>
     <string name="defense_skill">Defense Skill</string>
-    <string name="cards_received">Any Cards Received</string>
     <string name="postmatch">Post Match</string>
     <string name="gen_notes">General Notes</string>
     <string name="submit">Submit</string>
@@ -56,11 +55,25 @@
         <item>4</item>
         <item>5</item>
     </string-array>
+    <string-array name="allianceSide">
+        <item>Red</item>
+        <item>Blue</item>
+    </string-array>
+    <string-array name="startingPos">
+        <item>Left</item>
+        <item>Middle</item>
+        <item>Right</item>
+    </string-array>
     <string-array name="hangTypes">
         <item>None</item>
         <item>Park</item>
         <item>Shallow</item>
         <item>Deep</item>
+    </string-array>
+    <string-array name="cardTypes">
+        <item>None</item>
+        <item>Yellow</item>
+        <item>Red</item>
     </string-array>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -75,7 +88,10 @@
     <string name="editReportButton">Edit Report</string>
     <string name="navbar_scouting_match_info">Match Info</string>
     <string name="continue_report_subtext">Match %d  Team %d</string>
+    <string name="alliance">Alliance</string>
+    <string name="startPos">Starting Position</string>
     <string name="hang">Hang</string>
+    <string name="cards">Cards Received</string>
     <string name="Talgae_human_scored">Algae Human Scored</string>
     <string name="navbar_post_match">Post Match</string>
     <string name="saved_matches">Saved Matches</string>
