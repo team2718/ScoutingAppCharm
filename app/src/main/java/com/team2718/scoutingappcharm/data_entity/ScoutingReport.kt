@@ -14,8 +14,9 @@ data class ScoutingReport (
     @ColumnInfo(name = "team_number") var teamNumber: Int = 0,
     @ColumnInfo(name = "match_number") var matchNumber: Int = 0,
     @ColumnInfo(name = "scout_name") var scoutName: String = "",
-    // Alliance (0 = Red, 1 = Blue)
+    // Alliance, Predicted Winner (0 = Red, 1 = Blue)
     @ColumnInfo(name = "alliance") var alliance: Int = 0,
+    @ColumnInfo(name = "predicted_winner") var predictedWinner: Int = 0,
     // Starting Position (0 = Left, 1 = Middle, 2 = Right)
     @ColumnInfo(name = "starting_position") var startingPosition: Int = 0,
     @ColumnInfo(name = "unix_time_complete") var unixTimeComplete: Int = 0, // Time the report was finished in unix time stamp

@@ -28,12 +28,14 @@ class FragmentScoutingMatchInfo : Fragment() {
         var scoutName = view.findViewById<EditText>(R.id.scoutName)
         var alliance = view.findViewById<Spinner>(R.id.alliance)
         var startingPosition = view.findViewById<Spinner>(R.id.starting_position)
+        var predictedWinner = view.findViewById<Spinner>(R.id.predicted_winner)
 
         if (!viewModel.shouldMakeNewReport && viewModel.currentReport.stagesComplete != 0) {
             teamNumber.setText(viewModel.currentReport.teamNumber.toString())
             matchNumber.setText(viewModel.currentReport.matchNumber.toString())
             scoutName.setText(viewModel.currentReport.scoutName)
             alliance.setSelection(viewModel.currentReport.alliance)
+            predictedWinner.setSelection(viewModel.currentReport.predictedWinner)
             startingPosition.setSelection(viewModel.currentReport.startingPosition)
         }
 
@@ -69,6 +71,7 @@ class FragmentScoutingMatchInfo : Fragment() {
             viewModel.currentReport.scoutName = scoutName?.text.toString()
             viewModel.currentReport.startingPosition = startingPosition.selectedItemPosition
             viewModel.currentReport.alliance = alliance.selectedItemPosition
+            viewModel.currentReport.predictedWinner = predictedWinner.selectedItemPosition
 
             // Increment stages complete
             if (viewModel.currentReport.stagesComplete == 0) {
