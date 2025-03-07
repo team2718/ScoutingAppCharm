@@ -31,6 +31,7 @@ class FragmentScoutingTeleop : Fragment() {
     private lateinit var counterMissed: CounterView
 
     private lateinit var hangSpinner: Spinner
+    private lateinit var defenseCheckbox: CheckBox
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -44,8 +45,7 @@ class FragmentScoutingTeleop : Fragment() {
 
         counterProcessed = view.findViewById(R.id.counterProcessed)
         counterBarged = view.findViewById(R.id.counterBarged)
-        counterHuman = view.findViewById(R.id.counterHumanScored)
-        counterMissed = view.findViewById(R.id.counterHumanMissed)
+        defenseCheckbox = view.findViewById(R.id.checkBox)
 
         hangSpinner = view.findViewById(R.id.spinner)
 
@@ -70,10 +70,9 @@ class FragmentScoutingTeleop : Fragment() {
 
         counterProcessed.setValue(viewModel.currentReport.teleopNumProcessed)
         counterBarged.setValue(viewModel.currentReport.teleopNumNetFromRobot)
-        counterHuman.setValue(viewModel.currentReport.teleopNumNetFromHuman)
-        counterMissed.setValue(viewModel.currentReport.teleopNumNetMissedHuman)
 
         hangSpinner.setSelection(viewModel.currentReport.hangType)
+        defenseCheckbox.isChecked = viewModel.currentReport.playedDefense == true
     }
 
     private fun writeToViewModel() {
@@ -84,11 +83,9 @@ class FragmentScoutingTeleop : Fragment() {
 
         viewModel.currentReport.teleopNumProcessed = counterProcessed.getValue()
         viewModel.currentReport.teleopNumNetFromRobot = counterBarged.getValue()
-        viewModel.currentReport.teleopNumNetFromHuman = counterHuman.getValue()
-        viewModel.currentReport.teleopNumNetMissedHuman = counterMissed.getValue()
-
 
         viewModel.currentReport.hangType = hangSpinner.selectedItemPosition
+        viewModel.currentReport.playedDefense = defenseCheckbox.isChecked
     }
 
     private fun next() {

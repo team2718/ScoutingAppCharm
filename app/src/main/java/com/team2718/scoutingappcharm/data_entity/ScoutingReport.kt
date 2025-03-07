@@ -37,14 +37,13 @@ data class ScoutingReport (
     // Teleop
     @ColumnInfo(name = "teleop_num_processed") var teleopNumProcessed: Int = 0,
     @ColumnInfo(name = "teleop_num_net_from_robot") var teleopNumNetFromRobot: Int = 0,
-    @ColumnInfo(name = "teleop_num_net_from_human") var teleopNumNetFromHuman: Int = 0,
-    @ColumnInfo(name = "teleop_num_net_missed_human") var teleopNumNetMissedHuman: Int = 0,
     @ColumnInfo(name = "teleop_L1") var teleopL1: Int = 0,
     @ColumnInfo(name = "teleop_L2") var teleopL2: Int = 0,
     @ColumnInfo(name = "teleop_L3") var teleopL3: Int = 0,
     @ColumnInfo(name = "teleop_L4") var teleopL4: Int = 0,
     // Hang (0 = No Hang, 1 = Park, 2 = Shallow, 3 = Deep, 4 = Shallow Failed, 5 = Deep Failed)
     @ColumnInfo(name = "hang_type") var hangType: Int = 0,
+    @ColumnInfo(name = "played_defense") var playedDefense: Boolean = false,
 
     // Endgame
     // Cards Received (0 = None, 1 = Yellow, 2 = Red)

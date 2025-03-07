@@ -102,5 +102,6 @@
     <string name="delete">Delete</string>
     <string name="navbar_qr_code">QR Viewer</string>
     <string name="edit">Edit</string>
-    <string name="predicted_winner">Predicted Winner</string>
+    <string name="predicted_winner">Predict a winner</string>
+    <string name="played_defense">Played Defense</string>
 </resources>
