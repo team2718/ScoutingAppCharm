@@ -42,6 +42,7 @@
     <string name="gen_notes">General Notes</string>
     <string name="submit">Submit</string>
     <string name="navbar_sync">Sync</string>
+    <string name="navbar_team_analysis">Team Analysis</string>
     <string-array name="offensiveSkillItems">
         <item>1</item>
         <item>2</item>
@@ -104,4 +105,5 @@
     <string name="edit">Edit</string>
     <string name="predicted_winner">Predict a winner</string>
     <string name="played_defense">Played Defense</string>
+    <string name="navbar_team_analysis_info">Team Info Viewer</string>
 </resources>

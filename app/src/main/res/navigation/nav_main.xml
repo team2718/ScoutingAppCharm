@@ -6,4 +6,5 @@
 
     <include app:graph="@navigation/nav_scouting" />
     <include app:graph="@navigation/nav_sync" />
+    <include app:graph="@navigation/nav_team_analysis" />
 </navigation>

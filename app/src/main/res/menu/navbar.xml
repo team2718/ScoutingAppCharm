@@ -11,4 +11,9 @@
         android:icon="@android:drawable/ic_menu_set_as"
         android:contentDescription="@string/navbar_sync"
         android:title="@string/navbar_sync" />
+    <item
+        android:id="@+id/nav_team_analysis"
+        android:icon="@android:drawable/ic_menu_search"
+        android:contentDescription="@string/navbar_team_analysis"
+        android:title="@string/navbar_team_analysis" />
 </menu>

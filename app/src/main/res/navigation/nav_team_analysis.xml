@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_team_analysis"
+    app:startDestination="@id/nav_team_analysis_view">
+
+    <fragment
+        android:id="@+id/nav_team_analysis_view"
+        android:name="com.team2718.scoutingappcharm.team_analysis.TeamAnalysisView"
+        android:label="@string/navbar_team_analysis"
+        tools:layout="@layout/fragment_team_analysis_view" >
+        <action
+            android:id="@+id/fragment_team_analysis_view"
+            app:destination="@id/nav_team_analysis_info" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_team_analysis_info"
+        android:name="com.team2718.scoutingappcharm.team_analysis.TeamAnalysisInfo"
+        android:label="@string/navbar_team_analysis_info"
+        tools:layout="@layout/fragment_team_analysis_info" />
+</navigation>
