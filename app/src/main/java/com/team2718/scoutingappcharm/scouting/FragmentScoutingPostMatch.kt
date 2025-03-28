@@ -23,6 +23,9 @@ class FragmentScoutingPostMatch : Fragment() {
     private lateinit var notes: TextView
     private lateinit var cardSpinner: Spinner
 
+    public var teamsInfo = Array(1) { Array(1000) { kotlin.Array(5) { 0 } } }
+    var submissions = 0
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
@@ -53,6 +56,33 @@ class FragmentScoutingPostMatch : Fragment() {
 
     private fun submit() {
         writeToViewModel()
+
+        teamsInfo[0][submissions][0] = viewModel.currentReport.teamNumber
+        teamsInfo[0][submissions][1] = viewModel.currentReport.autoL1
+        teamsInfo[0][submissions][1] = viewModel.currentReport.autoL2
+        teamsInfo[0][submissions][1] = viewModel.currentReport.autoL3
+        teamsInfo[0][submissions][1] = viewModel.currentReport.autoL4
+        submissions += 1
+
+        /*
+        var teamNumberAlreadyEntered = false
+        var currentTeamRow = 0
+        for(x in teamsInfo) {
+            for (y in x) {
+                if (y[0] == viewModel.currentReport.teamNumber) {
+                    teamNumberAlreadyEntered = true
+                    currentTeamRow = teamsInfo.size
+                    break
+                }
+            }
+        }
+        if (!teamNumberAlreadyEntered) {
+            //teamsInfo.addRow(addColumn(viewModel.currentReport.teamNumber, viewModel.currentReport.autoL1, viewModel.currentReport.autoL2, viewModel.currentReport.autoL3, viewModel.currentReport.autoL4, viewModel.currentReport.teleopL1, viewModel.currentReport.teleopL2, viewModel.currentReport.teleopL3, viewModel.currentReport.teleopL4))
+        } else {
+            //teamsInfo.addColumn(viewModel.currentReport.teamNumber, viewModel.currentReport.autoL1, viewModel.currentReport.autoL2, viewModel.currentReport.autoL3, viewModel.currentReport.autoL4, viewModel.currentReport.teleopL1, viewModel.currentReport.teleopL2, viewModel.currentReport.teleopL3, viewModel.currentReport.teleopL4))
+        }*/
+
+
 
         // If the report isn't already complete, set the timestamp
         // This is in case of editing

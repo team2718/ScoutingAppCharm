@@ -19,11 +19,11 @@ import com.google.zxing.qrcode.QRCodeWriter
 import com.team2718.scoutingappcharm.R
 import com.team2718.scoutingappcharm.SharedViewModel
 import com.team2718.scoutingappcharm.data_entity.ScoutingReport
+import com.team2718.scoutingappcharm.scouting.FragmentScoutingPostMatch
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import java.util.Hashtable
 import java.util.Locale
-
 
 class TeamAnalysisInfo : Fragment() {
 
@@ -34,7 +34,7 @@ class TeamAnalysisInfo : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_team_analysis_view, container, false)
+        val view = inflater.inflate(R.layout.fragment_team_analysis_info, container, false)
 
         fillView(view)
 
@@ -46,47 +46,13 @@ class TeamAnalysisInfo : Fragment() {
         var reportIndex = viewModel.viewReportIndex
         var report: ScoutingReport = viewModel.viewReportList.orEmpty()[reportIndex]
 
-        view.findViewById<TextView>(R.id.qr_label).text = String.format(Locale.US,"Match %s  Team %s", report.matchNumber, report.teamNumber)
-        view.findViewById<TextView>(R.id.qr_time_label).text = date_format_full.format(report.unixTimeComplete.toLong() * 1000)
-        view.findViewById<TextView>(R.id.qr_scout_label).text = String.format(Locale.US, "Scout: %s", report.scoutName)
+        var autoL1 = 7 //teamsInfo[0][0][0]
 
-        view.findViewById<Button>(R.id.delete_button).setOnClickListener{
-            val alertDialogBuilder = AlertDialog.Builder(view.context)
-            alertDialogBuilder.setCancelable(true)
-            alertDialogBuilder.setTitle("Delete Report")
-            alertDialogBuilder.setMessage("Are you sure you want to delete this report?")
-            alertDialogBuilder.setPositiveButton("Delete",
-                DialogInterface.OnClickListener { dialog, which ->
-                    viewModel.deleteReport(report)
-                    findNavController().popBackStack()
-                })
-            alertDialogBuilder.setNegativeButton("Cancel",
-                DialogInterface.OnClickListener { dialog, which ->})
-
-            val dialog: AlertDialog = alertDialogBuilder.create()
-            dialog.show()
-        }
-
-        view.findViewById<Button>(R.id.edit_button).setOnClickListener{
-            val alertDialogBuilder = AlertDialog.Builder(view.context)
-            alertDialogBuilder.setCancelable(true)
-            alertDialogBuilder.setTitle("Edit Report")
-            alertDialogBuilder.setMessage("Are you sure you want to edit this report?")
-            alertDialogBuilder.setPositiveButton("Edit",
-                DialogInterface.OnClickListener { dialog, which ->
-                    viewModel.currentReport = report
-                    findNavController().popBackStack()
-                    viewModel.bottomNavigationView.selectedItemId = R.id.nav_scouting
-                    viewModel.doPageSkipping = false
-                    viewModel.shouldMakeNewReport = false
-                    findNavController().navigate(R.id.nav_scouting_match_info)
-                })
-            alertDialogBuilder.setNegativeButton("Cancel",
-                DialogInterface.OnClickListener { dialog, which ->})
-
-            val dialog: AlertDialog = alertDialogBuilder.create()
-            dialog.show()
-        }
+        view.findViewById<TextView>(R.id.qr_label).text = String.format(Locale.US,"Team %s", report.teamNumber, report.matchNumber)
+        view.findViewById<TextView>(R.id.qr_autoL1_label).text = String.format(Locale.US, "Auto L1 Average: %s", report.autoL1, report.autoL1)
+        view.findViewById<TextView>(R.id.qr_autoL2_label).text = String.format(Locale.US, "Auto L2 Average: %s", report.autoL2, report.autoL2)
+        view.findViewById<TextView>(R.id.qr_autoL3_label).text = String.format(Locale.US, "Auto L3 Average: %s", report.autoL3, report.autoL3)
+        view.findViewById<TextView>(R.id.qr_autoL4_label).text = String.format(Locale.US, "Auto L4 Average: %s", autoL1, autoL1)
 
         if (reportIndex > 0) {
             view.findViewById<Button>(R.id.prev_button).isEnabled = true
@@ -109,8 +75,6 @@ class TeamAnalysisInfo : Fragment() {
         }
 
         val json = Json { encodeDefaults = true }
-
-        view.findViewById<ImageView>(R.id.qr_image).setImageBitmap(generateQRCode(json.encodeToString(report), 400))
 
     }
 
