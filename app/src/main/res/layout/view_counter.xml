@@ -7,33 +7,75 @@
     android:gravity="center">
 
     <Button
-        android:id="@+id/btn_minus"
-        android:layout_width="50dp"
+        android:id="@+id/btn_minus5"
+        android:layout_width="70dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="2dp"
+        android:layout_weight="1"
         android:insetTop="3dp"
         android:insetBottom="3dp"
         android:minHeight="40dip"
-        android:text="-"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:text="-5"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/btn_minus"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="2dp"
+        android:insetTop="3dp"
+        android:insetBottom="3dp"
+        android:minHeight="40dip"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:text="-1"
         android:textSize="20sp" />
 
     <TextView
         android:id="@+id/text_counter"
-        android:layout_width="50dp"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="10dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="2dp"
+        android:height="40dp"
         android:gravity="center"
+        android:includeFontPadding="false"
         android:text="0"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textSize="20sp" />
+        android:textSize="28sp" />
 
     <Button
         android:id="@+id/btn_plus"
-        android:layout_width="50dp"
+        android:layout_width="70dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="2dp"
         android:insetTop="3dp"
         android:insetBottom="3dp"
         android:minHeight="40dip"
-        android:text="+"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:text="+1"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/btn_plus5"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="2dp"
+        android:layout_weight="1"
+        android:insetTop="3dp"
+        android:insetBottom="3dp"
+        android:minHeight="40dip"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:text="+5"
         android:textSize="20sp" />
 
 </LinearLayout>

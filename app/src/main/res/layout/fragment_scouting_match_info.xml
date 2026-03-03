@@ -145,29 +145,6 @@
 
             </TableRow>
 
-            <TableRow
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="@string/predicted_winner"
-                    android:textSize="20sp" />
-
-                <Spinner
-                    android:id="@+id/predicted_winner"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:entries="@array/allianceSide"
-                    android:minHeight="48dp"
-                    android:spinnerMode="dialog" />
-
-            </TableRow>
-
         </LinearLayout>
 
     </LinearLayout>

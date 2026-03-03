@@ -16,6 +16,8 @@ class CounterView @JvmOverloads constructor(
     private val textView: TextView
     private val btnMinus: Button
     private val btnPlus: Button
+    private val btnMinus5: Button
+    private val btnPlus5: Button
 
     init {
         // Inflate the layout
@@ -25,22 +27,26 @@ class CounterView @JvmOverloads constructor(
         textView = findViewById(R.id.text_counter)
         btnMinus = findViewById(R.id.btn_minus)
         btnPlus = findViewById(R.id.btn_plus)
+        btnMinus5 = findViewById(R.id.btn_minus5)
+        btnPlus5 = findViewById(R.id.btn_plus5)
 
         // Set initial value
         updateText()
 
         // Set up button click listeners
-        btnMinus.setOnClickListener { decrement() }
-        btnPlus.setOnClickListener { increment() }
+        btnMinus.setOnClickListener { decrement(1) }
+        btnPlus.setOnClickListener { increment(1) }
+        btnMinus5.setOnClickListener { decrement(5) }
+        btnPlus5.setOnClickListener { increment(5) }
     }
 
-    private fun increment() {
-        count++
+    private fun increment(amount: Int) {
+        count += amount;
         updateText()
     }
 
-    private fun decrement() {
-        count--
+    private fun decrement(amount: Int) {
+        count -= amount;
         if (count < 0) count = 0
         updateText()
     }

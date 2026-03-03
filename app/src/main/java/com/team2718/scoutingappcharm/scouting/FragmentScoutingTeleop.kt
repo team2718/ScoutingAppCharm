@@ -6,48 +6,38 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.CheckBox
-import android.widget.EditText
+import android.widget.RatingBar
 import android.widget.Spinner
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.team2718.scoutingappcharm.R
 import com.team2718.scoutingappcharm.SharedViewModel
 import com.team2718.scoutingappcharm.custom.CounterView
+import kotlin.math.roundToInt
 
 class FragmentScoutingTeleop : Fragment() {
 
     val viewModel: SharedViewModel by activityViewModels()
 
-    private lateinit var counterL1: CounterView
-    private lateinit var counterL2: CounterView
-    private lateinit var counterL3: CounterView
-    private lateinit var counterL4: CounterView
+    private lateinit var fuelRate: RatingBar
+    private lateinit var accRate: RatingBar
+    private lateinit var passRate: RatingBar
+    private lateinit var defenseRate: RatingBar
 
-    private lateinit var counterProcessed: CounterView
-    private lateinit var counterBarged: CounterView
-    private lateinit var counterHuman: CounterView
-    private lateinit var counterMissed: CounterView
-
-    private lateinit var hangSpinner: Spinner
-    private lateinit var defenseCheckbox: CheckBox
+    private lateinit var climbSpinner: Spinner
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_scouting_teleop, container, false)
 
-        counterL1 = view.findViewById(R.id.counterL1)
-        counterL2 = view.findViewById(R.id.counterL2)
-        counterL3 = view.findViewById(R.id.counterL3)
-        counterL4 = view.findViewById(R.id.counterL4)
+        fuelRate = view.findViewById(R.id.fuelRatingBar)
+        accRate = view.findViewById(R.id.accRatingBar)
+        passRate = view.findViewById(R.id.passRatingBar)
+        defenseRate = view.findViewById(R.id.defRatingBar)
 
-        counterProcessed = view.findViewById(R.id.counterProcessed)
-        counterBarged = view.findViewById(R.id.counterBarged)
-        defenseCheckbox = view.findViewById(R.id.checkBox)
-
-        hangSpinner = view.findViewById(R.id.spinner)
+        climbSpinner = view.findViewById(R.id.climbSpinner)
 
         populateView()
 
@@ -63,29 +53,21 @@ class FragmentScoutingTeleop : Fragment() {
     }
 
     private fun populateView() {
-        counterL1.setValue(viewModel.currentReport.teleopL1)
-        counterL2.setValue(viewModel.currentReport.teleopL2)
-        counterL3.setValue(viewModel.currentReport.teleopL3)
-        counterL4.setValue(viewModel.currentReport.teleopL4)
+        fuelRate.rating = viewModel.currentReport.teleFuelRateScore.toFloat()
+        accRate.rating = viewModel.currentReport.teleAccScore.toFloat()
+        passRate.rating = viewModel.currentReport.telePassScore.toFloat()
+        defenseRate.rating = viewModel.currentReport.teleDefScore.toFloat()
 
-        counterProcessed.setValue(viewModel.currentReport.teleopNumProcessed)
-        counterBarged.setValue(viewModel.currentReport.teleopNumNetFromRobot)
-
-        hangSpinner.setSelection(viewModel.currentReport.hangType)
-        defenseCheckbox.isChecked = viewModel.currentReport.playedDefense == true
+        climbSpinner.setSelection(viewModel.currentReport.climbType)
     }
 
     private fun writeToViewModel() {
-        viewModel.currentReport.teleopL1 = counterL1.getValue()
-        viewModel.currentReport.teleopL2 = counterL2.getValue()
-        viewModel.currentReport.teleopL3 = counterL3.getValue()
-        viewModel.currentReport.teleopL4 = counterL4.getValue()
+        viewModel.currentReport.teleFuelRateScore = fuelRate.rating.roundToInt()
+        viewModel.currentReport.teleAccScore = accRate.rating.roundToInt()
+        viewModel.currentReport.telePassScore = passRate.rating.roundToInt()
+        viewModel.currentReport.teleDefScore = defenseRate.rating.roundToInt()
 
-        viewModel.currentReport.teleopNumProcessed = counterProcessed.getValue()
-        viewModel.currentReport.teleopNumNetFromRobot = counterBarged.getValue()
-
-        viewModel.currentReport.hangType = hangSpinner.selectedItemPosition
-        viewModel.currentReport.playedDefense = defenseCheckbox.isChecked
+        viewModel.currentReport.climbType = climbSpinner.selectedItemPosition
     }
 
     private fun next() {

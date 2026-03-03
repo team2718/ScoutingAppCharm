@@ -6,8 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.CheckBox
-import android.widget.EditText
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -19,29 +17,22 @@ class FragmentScoutingAuto : Fragment() {
 
     val viewModel: SharedViewModel by activityViewModels()
 
-    private lateinit var counterL1: CounterView
-    private lateinit var counterL2: CounterView
-    private lateinit var counterL3: CounterView
-    private lateinit var counterL4: CounterView
+    private lateinit var fuelScoredCounter: CounterView
+    private lateinit var fuelMissedCounter: CounterView
 
-    private lateinit var counterProcessed: CounterView
-    private lateinit var counterBarged: CounterView
     private lateinit var movedCheckbox: CheckBox
+    private lateinit var climbCheckbox: CheckBox
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_scouting_auto, container, false)
 
-        counterL1 = view.findViewById(R.id.counterL1)
-        counterL2 = view.findViewById(R.id.counterL2)
-        counterL3 = view.findViewById(R.id.counterL3)
-        counterL4 = view.findViewById(R.id.counterL4)
-
-        counterProcessed = view.findViewById(R.id.counterProcessed)
-        counterBarged = view.findViewById(R.id.counterBarged)
+        fuelScoredCounter = view.findViewById(R.id.counterScored)
+        fuelMissedCounter = view.findViewById(R.id.counterMissed)
 
         movedCheckbox = view.findViewById(R.id.movedCheckbox)
+        climbCheckbox = view.findViewById(R.id.climbedCheckbox)
 
         populateView()
 
@@ -57,26 +48,18 @@ class FragmentScoutingAuto : Fragment() {
     }
 
     private fun populateView() {
-        counterL1.setValue(viewModel.currentReport.autoL1)
-        counterL2.setValue(viewModel.currentReport.autoL2)
-        counterL3.setValue(viewModel.currentReport.autoL3)
-        counterL4.setValue(viewModel.currentReport.autoL4)
+        fuelScoredCounter.setValue(viewModel.currentReport.autoFuel)
+        fuelMissedCounter.setValue(viewModel.currentReport.autoFuelMissed)
 
-        counterProcessed.setValue(viewModel.currentReport.autoNumProcessed)
-        counterBarged.setValue(viewModel.currentReport.autoNumNetFromRobot)
-
+        movedCheckbox.isChecked = viewModel.currentReport.autoClimbed == true
         movedCheckbox.isChecked = viewModel.currentReport.didLeave == true
     }
 
     private fun writeToViewModel() {
-        viewModel.currentReport.autoL1 = counterL1.getValue()
-        viewModel.currentReport.autoL2 = counterL2.getValue()
-        viewModel.currentReport.autoL3 = counterL3.getValue()
-        viewModel.currentReport.autoL4 = counterL4.getValue()
+        viewModel.currentReport.autoFuel = fuelScoredCounter.getValue()
+        viewModel.currentReport.autoFuelMissed = fuelMissedCounter.getValue()
 
-        viewModel.currentReport.autoNumProcessed = counterProcessed.getValue()
-        viewModel.currentReport.autoNumNetFromRobot = counterBarged.getValue()
-
+        viewModel.currentReport.autoClimbed = climbCheckbox.isChecked
         viewModel.currentReport.didLeave = movedCheckbox.isChecked
     }
 

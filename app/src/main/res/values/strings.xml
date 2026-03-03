@@ -15,6 +15,7 @@
     <string name="ending_pos">Ending Position</string>
     <string name="frcfield">FRC Field</string>
     <string name="Amoved">Moved?</string>
+    <string name="Aclimb">Climbed?</string>
     <string name="AL1Scored">L1 Scored</string>
     <string name="AL2Scored">L2 Scored</string>
     <string name="AL3Scored">L3 Scored</string>
@@ -61,17 +62,17 @@
         <item>Blue</item>
     </string-array>
     <string-array name="startingPos">
-        <item>Processor Side</item>
-        <item>Middle</item>
-        <item>Other Side</item>
+        <item>Left Trench (Depot side)</item>
+        <item>Left Bump</item>
+        <item>Center</item>
+        <item>Right Bump</item>
+        <item>Right Trench (Outpost side)</item>
     </string-array>
-    <string-array name="hangTypes">
+    <string-array name="climbTypes">
         <item>None</item>
-        <item>Park</item>
-        <item>Shallow</item>
-        <item>Deep</item>
-        <item>Shallow Failed</item>
-        <item>Deep Failed</item>
+        <item>L1</item>
+        <item>L2</item>
+        <item>L3</item>
     </string-array>
     <string-array name="cardTypes">
         <item>None</item>
@@ -104,4 +105,11 @@
     <string name="edit">Edit</string>
     <string name="predicted_winner">Predict a winner</string>
     <string name="played_defense">Played Defense</string>
+    <string name="AFuelScored">Fuel Scored</string>
+    <string name="AFuelMissed">Fuel Missed</string>
+    <string name="TeleFuelRate">Firing Speed</string>
+    <string name="TeleAccRate">Shooting Accuracy</string>
+    <string name="telePassRate">Passing/Shoveling</string>
+    <string name="teleDefenseRate">Defense</string>
+    <string name="climbSelect">Climb</string>
 </resources>

@@ -16,7 +16,7 @@ data class ScoutingReport (
     @ColumnInfo(name = "scout_name") var scoutName: String = "",
     // Alliance, Predicted Winner (0 = Red, 1 = Blue)
     @ColumnInfo(name = "alliance") var alliance: Int = 0,
-    @ColumnInfo(name = "predicted_winner") var predictedWinner: Int = 0,
+//    @ColumnInfo(name = "predicted_winner") var predictedWinner: Int = 0,
     // Starting Position (0 = Left, 1 = Middle, 2 = Right)
     @ColumnInfo(name = "starting_position") var startingPosition: Int = 0,
     @ColumnInfo(name = "unix_time_complete") var unixTimeComplete: Int = 0, // Time the report was finished in unix time stamp
@@ -26,24 +26,18 @@ data class ScoutingReport (
     @ColumnInfo(name = "notes") var notes: String = "",
 
     // Auto
-    @ColumnInfo(name = "auto_L1") var autoL1: Int = 0,
-    @ColumnInfo(name = "auto_L2") var autoL2: Int = 0,
-    @ColumnInfo(name = "auto_L3") var autoL3: Int = 0,
-    @ColumnInfo(name = "auto_L4") var autoL4: Int = 0,
     @ColumnInfo(name = "auto_did_leave") var didLeave: Boolean = false,
-    @ColumnInfo(name = "auto_num_processed") var autoNumProcessed: Int = 0,
-    @ColumnInfo(name = "auto_num_net_from_robot") var autoNumNetFromRobot: Int = 0,
+    @ColumnInfo(name = "auto_fuel_scored") var autoFuel: Int = 0,
+    @ColumnInfo(name = "auto_fuel_missed") var autoFuelMissed: Int = 0,
+    @ColumnInfo(name = "auto_climbed") var autoClimbed: Boolean = false,
 
     // Teleop
-    @ColumnInfo(name = "teleop_num_processed") var teleopNumProcessed: Int = 0,
-    @ColumnInfo(name = "teleop_num_net_from_robot") var teleopNumNetFromRobot: Int = 0,
-    @ColumnInfo(name = "teleop_L1") var teleopL1: Int = 0,
-    @ColumnInfo(name = "teleop_L2") var teleopL2: Int = 0,
-    @ColumnInfo(name = "teleop_L3") var teleopL3: Int = 0,
-    @ColumnInfo(name = "teleop_L4") var teleopL4: Int = 0,
-    // Hang (0 = No Hang, 1 = Park, 2 = Shallow, 3 = Deep, 4 = Shallow Failed, 5 = Deep Failed)
-    @ColumnInfo(name = "hang_type") var hangType: Int = 0,
-    @ColumnInfo(name = "played_defense") var playedDefense: Boolean = false,
+    @ColumnInfo(name = "tele_fuel_rate_score") var teleFuelRateScore: Int = 0,
+    @ColumnInfo(name = "tele_acc_score") var teleAccScore: Int = 0,
+    @ColumnInfo(name = "tele_pass_score") var telePassScore: Int = 0,
+    @ColumnInfo(name = "tele_def_score") var teleDefScore: Int = 0,
+    // Hang (0 = No climb, 1 = L1, 2 = L2, 3 = L3)
+    @ColumnInfo(name = "climb_type") var climbType: Int = 0,
 
     // Endgame
     // Cards Received (0 = None, 1 = Yellow, 2 = Red)
