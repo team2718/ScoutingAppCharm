@@ -66,6 +66,27 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
         scoutingReports.insertReplace(report)
     }
 
+    fun setAssignment(assignmentString: String, assignmentId: Int) {
+        prefs.edit().putString("assignment", assignmentString).apply()
+        prefs.edit().putInt("assignmentId", assignmentId).apply()
+    }
+
+    fun getAssignmentString(): String {
+        return prefs.getString("assignment", "No Assignment").orEmpty()
+    }
+
+    fun getAssignmentId(): Int {
+        return prefs.getInt("assignmentId", 0)
+    }
+
+    fun setLastScout(scoutName: String) {
+        prefs.edit().putString("lastScoutName", scoutName).apply()
+    }
+
+    fun getLastScout(): String {
+        return prefs.getString("lastScoutName", "").orEmpty()
+    }
+
     init {
         viewModelScope.launch {
             val prefsCurrentReportID = prefs.getInt("current_report", 0)

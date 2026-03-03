@@ -9,7 +9,7 @@
     <string name="endgame">Endgame</string>
     <string name="auto">Auto</string>
     <string name="teleop">Teleopoooooo</string>
-    <string name="team_number">Team Number</string>
+    <string name="team_number">Robot Team Number</string>
     <string name="match_number">Match Number</string>
     <string name="starting_pos">Starting Position</string>
     <string name="ending_pos">Ending Position</string>
@@ -79,12 +79,20 @@
         <item>Yellow</item>
         <item>Red</item>
     </string-array>
+    <string-array name="settingAssignments">
+        <item>Red 1 (by Depot)</item>
+        <item>Red 2 (Center)</item>
+        <item>Red 3 (by Outpost)</item>
+        <item>Blue 1 (by Depot)</item>
+        <item>Blue 2 (Center)</item>
+        <item>Blue 3 (by Outpost)</item>
+    </string-array>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="scouter">Scout</string>
     <string name="scoutNameHint">Euler</string>
-    <string name="matchNumberHint">1</string>
-    <string name="teamNumberHint">2718</string>
+    <string name="matchNumberHint">67</string>
+    <string name="teamNumberHint">1678</string>
     <string name="startReportButton">New Report</string>
     <string name="navbar_auto">Auto</string>
     <string name="navbar_teleop">Teleop</string>
@@ -93,7 +101,7 @@
     <string name="navbar_scouting_match_info">Match Info</string>
     <string name="continue_report_subtext">Match %d  Team %d</string>
     <string name="alliance">Alliance</string>
-    <string name="startPos">Starting Position</string>
+    <string name="startPos">Robot Starting Position</string>
     <string name="hang">Hang</string>
     <string name="cards">Card Received</string>
     <string name="Talgae_human_scored">Algae Human Scored</string>
@@ -112,4 +120,6 @@
     <string name="telePassRate">Passing/Shoveling</string>
     <string name="teleDefenseRate">Defense</string>
     <string name="climbSelect">Climb</string>
+    <string name="navbar_settings">Settings</string>
+    <string name="settingsAssignment">Assignment</string>
 </resources>

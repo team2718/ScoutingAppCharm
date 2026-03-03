@@ -21,6 +21,8 @@ class FragmentScoutingMain : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_scouting_main, container, false)
 
+        view.findViewById<TextView>(R.id.assignmentText).text = viewModel.getAssignmentString()
+
         if (viewModel.currentReport.stagesComplete == 0) { // Only "continue" reports which have at least entered match/team info
             view.findViewById<Button>(R.id.continueReportButton).isEnabled = false
             view.findViewById<TextView>(R.id.continueReportText).text = ""

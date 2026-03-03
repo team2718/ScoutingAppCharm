@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
 import android.widget.TextView
+import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -23,18 +24,28 @@ class FragmentScoutingMatchInfo : Fragment() {
     ): View? {
         var view = inflater.inflate(R.layout.fragment_scouting_match_info, container, false)
 
+        var assignmentText = view.findViewById<TextView>(R.id.assignmentText)
+        var assignmentString = viewModel.getAssignmentString()
+        assignmentText.text = "Assignment: $assignmentString"
+
+        if (assignmentString.contains("Red")) {
+            assignmentText.setTextColor(ResourcesCompat.getColor(resources, R.color.red_assignment, null));
+        } else {
+            assignmentText.setTextColor(ResourcesCompat.getColor(resources, R.color.blue_assignment, null));
+        }
+
         var teamNumber = view.findViewById<EditText>(R.id.teamNumber)
         var matchNumber = view.findViewById<EditText>(R.id.matchNumber)
         var scoutName = view.findViewById<EditText>(R.id.scoutName)
-        var alliance = view.findViewById<Spinner>(R.id.alliance)
         var startingPosition = view.findViewById<Spinner>(R.id.starting_position)
 //        var predictedWinner = view.findViewById<Spinner>(R.id.predicted_winner)
+
+        scoutName.setText(viewModel.getLastScout())
 
         if (!viewModel.shouldMakeNewReport && viewModel.currentReport.stagesComplete != 0) {
             teamNumber.setText(viewModel.currentReport.teamNumber.toString())
             matchNumber.setText(viewModel.currentReport.matchNumber.toString())
             scoutName.setText(viewModel.currentReport.scoutName)
-            alliance.setSelection(viewModel.currentReport.alliance)
 //            predictedWinner.setSelection(viewModel.currentReport.predictedWinner)
             startingPosition.setSelection(viewModel.currentReport.startingPosition)
         }
@@ -70,8 +81,10 @@ class FragmentScoutingMatchInfo : Fragment() {
             viewModel.currentReport.teamNumber = getIntFromTextView(teamNumber)
             viewModel.currentReport.scoutName = scoutName?.text.toString()
             viewModel.currentReport.startingPosition = startingPosition.selectedItemPosition
-            viewModel.currentReport.alliance = alliance.selectedItemPosition
+            viewModel.currentReport.alliance = if (assignmentString.contains("Red")) 0 else 1
 //            viewModel.currentReport.predictedWinner = predictedWinner.selectedItemPosition
+
+            viewModel.setLastScout(viewModel.currentReport.scoutName)
 
             // Increment stages complete
             if (viewModel.currentReport.stagesComplete == 0) {
