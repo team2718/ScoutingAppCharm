@@ -25,6 +25,11 @@ class FragmentScoutingTeleop : Fragment() {
     private lateinit var passRate: RatingBar
     private lateinit var defenseRate: RatingBar
 
+    private lateinit var passCheckBox: CheckBox
+    private lateinit var defCheckBox: CheckBox
+    private lateinit var rampCheckBox: CheckBox
+    private lateinit var trenchCheckBox: CheckBox
+
     private lateinit var climbSpinner: Spinner
 
     override fun onCreateView(
@@ -37,7 +42,26 @@ class FragmentScoutingTeleop : Fragment() {
         passRate = view.findViewById(R.id.passRatingBar)
         defenseRate = view.findViewById(R.id.defRatingBar)
 
+        passCheckBox = view.findViewById(R.id.passCheckBox)
+        defCheckBox = view.findViewById(R.id.defCheckBox)
+        rampCheckBox = view.findViewById(R.id.rampCheckBox)
+        trenchCheckBox = view.findViewById(R.id.trenchCheckBox)
+
         climbSpinner = view.findViewById(R.id.climbSpinner)
+
+        passCheckBox.setOnCheckedChangeListener { _, isChecked ->
+            passRate.isEnabled = isChecked
+            if (!isChecked) {
+                passRate.rating = 0f
+            }
+        }
+
+        defCheckBox.setOnCheckedChangeListener { _, isChecked ->
+            defenseRate.isEnabled = isChecked
+            if (!isChecked) {
+                defenseRate.rating = 0f
+            }
+        }
 
         populateView()
 
@@ -55,19 +79,35 @@ class FragmentScoutingTeleop : Fragment() {
     private fun populateView() {
         fuelRate.rating = viewModel.currentReport.teleFuelRateScore.toFloat()
         accRate.rating = viewModel.currentReport.teleAccScore.toFloat()
+
+        passCheckBox.isChecked = viewModel.currentReport.teleDidPass
+        passRate.isEnabled = viewModel.currentReport.teleDidPass
         passRate.rating = viewModel.currentReport.telePassScore.toFloat()
+
+        defCheckBox.isChecked = viewModel.currentReport.teleDidDef
+        defenseRate.isEnabled = viewModel.currentReport.teleDidDef
         defenseRate.rating = viewModel.currentReport.teleDefScore.toFloat()
 
         climbSpinner.setSelection(viewModel.currentReport.climbType)
+
+        rampCheckBox.isChecked = viewModel.currentReport.teleUsesRamp
+        trenchCheckBox.isChecked = viewModel.currentReport.teleUsesTrench
     }
 
     private fun writeToViewModel() {
         viewModel.currentReport.teleFuelRateScore = fuelRate.rating.roundToInt()
         viewModel.currentReport.teleAccScore = accRate.rating.roundToInt()
-        viewModel.currentReport.telePassScore = passRate.rating.roundToInt()
-        viewModel.currentReport.teleDefScore = defenseRate.rating.roundToInt()
+
+        viewModel.currentReport.teleDidPass = passCheckBox.isChecked
+        viewModel.currentReport.telePassScore = if (passCheckBox.isChecked) passRate.rating.roundToInt() else 0
+
+        viewModel.currentReport.teleDidDef = defCheckBox.isChecked
+        viewModel.currentReport.teleDefScore = if (defCheckBox.isChecked) defenseRate.rating.roundToInt() else 0
 
         viewModel.currentReport.climbType = climbSpinner.selectedItemPosition
+
+        viewModel.currentReport.teleUsesRamp = rampCheckBox.isChecked
+        viewModel.currentReport.teleUsesTrench = trenchCheckBox.isChecked
     }
 
     private fun next() {

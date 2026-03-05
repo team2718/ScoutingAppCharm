@@ -11,4 +11,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="red_assignment">#BC2D2D</color>
     <color name="blue_assignment">#2222CA</color>
+    <color name="flex_assignment">#555555</color>
 </resources>

@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:text="Version 2026.1 (2026-03-03)"
+        android:text="Version 2026.2 (2026-03-04)"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -52,13 +52,13 @@
         app:layout_constraintStart_toStartOf="@+id/matchInfoNext"
         app:layout_constraintTop_toBottomOf="@+id/matchInfoNext" />
 
-        <TextView
-            android:id="@+id/continueReportText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/continueReportButton" />
+    <TextView
+        android:id="@+id/continueReportText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/continueReportButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

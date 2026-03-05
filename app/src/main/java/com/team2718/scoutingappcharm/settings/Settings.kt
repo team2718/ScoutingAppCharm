@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
+import android.widget.Button
 import android.widget.Spinner
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -21,23 +21,13 @@ class Settings : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_settings, container, false)
 
-        var assignmentSpinner = view.findViewById<Spinner>(R.id.assignmentSpinner)
+        val assignmentSpinner = view.findViewById<Spinner>(R.id.assignmentSpinner)
+        val saveButton = view.findViewById<Button>(R.id.settingsSaveButton)
 
         assignmentSpinner.setSelection(viewModel.getAssignmentId())
 
-        assignmentSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(
-                parentView: AdapterView<*>?,
-                selectedItemView: View?,
-                position: Int,
-                id: Long
-            ) {
-                viewModel.setAssignment(assignmentSpinner.selectedItem.toString(), assignmentSpinner.selectedItemPosition);
-            }
-
-            override fun onNothingSelected(parentView: AdapterView<*>?) {
-
-            }
+        saveButton.setOnClickListener {
+            viewModel.setAssignment(assignmentSpinner.selectedItem.toString(), assignmentSpinner.selectedItemPosition)
         }
 
         return view

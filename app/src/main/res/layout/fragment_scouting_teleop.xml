@@ -6,6 +6,196 @@
     android:layout_height="match_parent"
     tools:context=".scouting.FragmentScoutingTeleop">
 
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Firing Speed -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="4dp">
+
+            <TextView
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:text="@string/TeleFuelRate"
+                android:textSize="20sp"
+                android:textAlignment="textEnd"
+                android:layout_marginEnd="16dp" />
+
+            <RatingBar
+                android:id="@+id/fuelRatingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:rating="0"
+                android:stepSize="1" />
+        </LinearLayout>
+
+        <!-- Shooting Accuracy -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="4dp">
+
+            <TextView
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:text="@string/TeleAccRate"
+                android:textSize="20sp"
+                android:textAlignment="textEnd"
+                android:layout_marginEnd="16dp" />
+
+            <RatingBar
+                android:id="@+id/accRatingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:rating="0"
+                android:stepSize="1" />
+        </LinearLayout>
+
+        <!-- Passing/Shoveling with Performed? checkbox -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="4dp">
+
+            <TextView
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:text="@string/telePassRate"
+                android:textSize="20sp"
+                android:textAlignment="textEnd"
+                android:layout_marginEnd="16dp" />
+
+            <CheckBox
+                android:id="@+id/passCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/teleop_checkbox_performed"
+                android:textSize="16sp"
+                android:checked="false"
+                android:layout_marginEnd="8dp" />
+
+            <RatingBar
+                android:id="@+id/passRatingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:numStars="5"
+                android:rating="0"
+                android:stepSize="1" />
+        </LinearLayout>
+
+        <!-- Defense with Performed? checkbox -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="4dp">
+
+            <TextView
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:text="@string/teleDefenseRate"
+                android:textSize="20sp"
+                android:textAlignment="textEnd"
+                android:layout_marginEnd="16dp" />
+
+            <CheckBox
+                android:id="@+id/defCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/teleop_checkbox_performed"
+                android:textSize="16sp"
+                android:checked="false"
+                android:layout_marginEnd="8dp" />
+
+            <RatingBar
+                android:id="@+id/defRatingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:numStars="5"
+                android:rating="0"
+                android:stepSize="1" />
+        </LinearLayout>
+
+        <!-- Zone Traversal -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="4dp">
+
+            <TextView
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:text="@string/teleZoneTraversal"
+                android:textSize="20sp"
+                android:textAlignment="textEnd"
+                android:layout_marginEnd="16dp" />
+
+            <CheckBox
+                android:id="@+id/rampCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/teleRampCheckbox"
+                android:textSize="16sp"
+                android:checked="false"
+                android:layout_marginEnd="16dp" />
+
+            <CheckBox
+                android:id="@+id/trenchCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/teleTrenchCheckbox"
+                android:textSize="16sp"
+                android:checked="false" />
+        </LinearLayout>
+
+        <!-- Climb -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:text="@string/climbSelect"
+                android:textSize="20sp"
+                android:textAlignment="textEnd"
+                android:layout_marginEnd="16dp" />
+
+            <Spinner
+                android:id="@+id/climbSpinner"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:entries="@array/climbTypes"
+                android:minHeight="48dp"
+                android:spinnerMode="dialog" />
+        </LinearLayout>
+
+    </LinearLayout>
+
     <Button
         android:id="@+id/teleopNext"
         android:layout_width="wrap_content"
@@ -16,153 +206,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.477"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TableLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center">
-
-                <TextView
-                    android:id="@+id/textView4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
-                    android:gravity="center"
-                    android:text="@string/TeleFuelRate"
-                    android:textAlignment="textEnd"
-                    android:textSize="20sp" />
-
-                <RatingBar
-                    android:id="@+id/fuelRatingBar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:numStars="5"
-                    android:rating="0"
-                    android:stepSize="1"
-                    tools:layout_editor_absoluteX="122dp"
-                    tools:layout_editor_absoluteY="236dp" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center">
-
-                <TextView
-                    android:id="@+id/textView3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
-                    android:gravity="center"
-                    android:text="@string/TeleAccRate"
-                    android:textAlignment="textEnd"
-                    android:textSize="20sp" />
-
-                <RatingBar
-                    android:id="@+id/accRatingBar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:numStars="5"
-                    android:rating="0"
-                    android:stepSize="1"
-                    tools:layout_editor_absoluteX="122dp"
-                    tools:layout_editor_absoluteY="236dp" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center">
-
-                <TextView
-                    android:id="@+id/textView1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
-                    android:gravity="center"
-                    android:text="@string/telePassRate"
-                    android:textAlignment="textEnd"
-                    android:textSize="20sp" />
-
-                <RatingBar
-                    android:id="@+id/passRatingBar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:numStars="5"
-                    android:rating="0"
-                    android:stepSize="1"
-                    tools:layout_editor_absoluteX="122dp"
-                    tools:layout_editor_absoluteY="236dp" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center">
-
-                <TextView
-                    android:id="@+id/textView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
-                    android:gravity="center"
-                    android:text="@string/teleDefenseRate"
-                    android:textAlignment="textEnd"
-                    android:textSize="20sp" />
-
-                <RatingBar
-                    android:id="@+id/defRatingBar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:numStars="5"
-                    android:rating="0"
-                    android:stepSize="1"
-                    tools:layout_editor_absoluteX="122dp"
-                    tools:layout_editor_absoluteY="236dp" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center">
-
-                <TextView
-                    android:id="@+id/textView5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="@string/climbSelect"
-                    android:textAlignment="textEnd"
-                    android:textSize="20sp"
-                    android:layout_marginEnd="16dp" />
-
-                <Spinner
-                    android:id="@+id/climbSpinner"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="start"
-                    android:entries="@array/climbTypes"
-                    android:minHeight="48dp"
-                    android:spinnerMode="dialog" />
-
-            </TableRow>
-
-        </TableLayout>
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

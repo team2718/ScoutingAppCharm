@@ -72,11 +72,11 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
     }
 
     fun getAssignmentString(): String {
-        return prefs.getString("assignment", "No Assignment").orEmpty()
+        return prefs.getString("assignment", "Flex (Any Robot)").orEmpty()
     }
 
     fun getAssignmentId(): Int {
-        return prefs.getInt("assignmentId", 0)
+        return prefs.getInt("assignmentId", 6)
     }
 
     fun setLastScout(scoutName: String) {

@@ -35,9 +35,13 @@ data class ScoutingReport (
     @ColumnInfo(name = "tele_fuel_rate_score") var teleFuelRateScore: Int = 0,
     @ColumnInfo(name = "tele_acc_score") var teleAccScore: Int = 0,
     @ColumnInfo(name = "tele_pass_score") var telePassScore: Int = 0,
+    @ColumnInfo(name = "tele_did_pass") var teleDidPass: Boolean = false,
     @ColumnInfo(name = "tele_def_score") var teleDefScore: Int = 0,
+    @ColumnInfo(name = "tele_did_def") var teleDidDef: Boolean = false,
     // Hang (0 = No climb, 1 = L1, 2 = L2, 3 = L3)
     @ColumnInfo(name = "climb_type") var climbType: Int = 0,
+    @ColumnInfo(name = "tele_uses_ramp") var teleUsesRamp: Boolean = false,
+    @ColumnInfo(name = "tele_uses_trench") var teleUsesTrench: Boolean = false,
 
     // Endgame
     // Cards Received (0 = None, 1 = Yellow, 2 = Red)

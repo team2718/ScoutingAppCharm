@@ -86,6 +86,7 @@
         <item>Blue 1 (by Depot)</item>
         <item>Blue 2 (Center)</item>
         <item>Blue 3 (by Outpost)</item>
+        <item>Flex (Any Robot)</item>
     </string-array>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -122,4 +123,17 @@
     <string name="climbSelect">Climb</string>
     <string name="navbar_settings">Settings</string>
     <string name="settingsAssignment">Assignment</string>
+    <string name="settingsSave">Save</string>
+    <string name="teleop_checkbox_performed">Performed?</string>
+    <string name="teleZoneTraversal">Zone Traversal</string>
+    <string name="teleRampCheckbox">Ramp</string>
+    <string name="teleTrenchCheckbox">Trench</string>
+    <string name="page_title_auto">Autonomous Period</string>
+    <string name="page_subtitle_auto">Record what happened during the 15-second autonomous phase.</string>
+    <string name="page_title_teleop">Teleop Period</string>
+    <string name="page_subtitle_teleop">Rate the robot\'s performance. Only check a box if the robot actually performed that action.</string>
+    <string name="page_subtitle_match_info">Fill in the details for this match, then tap Next.</string>
+    <string name="page_title_post_match">Post Match</string>
+    <string name="page_subtitle_post_match">Add any final notes, then submit to save this report.</string>
+    <string name="main_subtitle">Tap New Report to start scouting a robot for this match.</string>
 </resources>

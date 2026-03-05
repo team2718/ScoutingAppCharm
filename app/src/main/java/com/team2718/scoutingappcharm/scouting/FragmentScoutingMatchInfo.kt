@@ -30,8 +30,10 @@ class FragmentScoutingMatchInfo : Fragment() {
 
         if (assignmentString.contains("Red")) {
             assignmentText.setTextColor(ResourcesCompat.getColor(resources, R.color.red_assignment, null));
-        } else {
+        } else if (assignmentString.contains("Blue")) {
             assignmentText.setTextColor(ResourcesCompat.getColor(resources, R.color.blue_assignment, null));
+        } else {
+            assignmentText.setTextColor(ResourcesCompat.getColor(resources, R.color.flex_assignment, null));
         }
 
         var teamNumber = view.findViewById<EditText>(R.id.teamNumber)
@@ -81,7 +83,11 @@ class FragmentScoutingMatchInfo : Fragment() {
             viewModel.currentReport.teamNumber = getIntFromTextView(teamNumber)
             viewModel.currentReport.scoutName = scoutName?.text.toString()
             viewModel.currentReport.startingPosition = startingPosition.selectedItemPosition
-            viewModel.currentReport.alliance = if (assignmentString.contains("Red")) 0 else 1
+            viewModel.currentReport.alliance = when {
+                assignmentString.contains("Red") -> 0
+                assignmentString.contains("Blue") -> 1
+                else -> 2
+            }
 //            viewModel.currentReport.predictedWinner = predictedWinner.selectedItemPosition
 
             viewModel.setLastScout(viewModel.currentReport.scoutName)
