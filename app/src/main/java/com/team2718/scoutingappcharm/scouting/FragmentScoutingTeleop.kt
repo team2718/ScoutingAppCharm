@@ -21,10 +21,10 @@ class FragmentScoutingTeleop : Fragment() {
     val viewModel: SharedViewModel by activityViewModels()
 
     private lateinit var fuelRate: RatingBar
-    private lateinit var accRate: RatingBar
     private lateinit var passRate: RatingBar
     private lateinit var defenseRate: RatingBar
 
+    private lateinit var fuelCheckBox: CheckBox
     private lateinit var passCheckBox: CheckBox
     private lateinit var defCheckBox: CheckBox
     private lateinit var rampCheckBox: CheckBox
@@ -38,16 +38,23 @@ class FragmentScoutingTeleop : Fragment() {
         val view = inflater.inflate(R.layout.fragment_scouting_teleop, container, false)
 
         fuelRate = view.findViewById(R.id.fuelRatingBar)
-        accRate = view.findViewById(R.id.accRatingBar)
         passRate = view.findViewById(R.id.passRatingBar)
         defenseRate = view.findViewById(R.id.defRatingBar)
 
+        fuelCheckBox = view.findViewById(R.id.fuelCheckBox)
         passCheckBox = view.findViewById(R.id.passCheckBox)
         defCheckBox = view.findViewById(R.id.defCheckBox)
         rampCheckBox = view.findViewById(R.id.rampCheckBox)
         trenchCheckBox = view.findViewById(R.id.trenchCheckBox)
 
         climbSpinner = view.findViewById(R.id.climbSpinner)
+
+        fuelCheckBox.setOnCheckedChangeListener { _, isChecked ->
+            fuelRate.isEnabled = isChecked
+            if (!isChecked) {
+                fuelRate.rating = 0f
+            }
+        }
 
         passCheckBox.setOnCheckedChangeListener { _, isChecked ->
             passRate.isEnabled = isChecked
@@ -77,8 +84,9 @@ class FragmentScoutingTeleop : Fragment() {
     }
 
     private fun populateView() {
-        fuelRate.rating = viewModel.currentReport.teleFuelRateScore.toFloat()
-        accRate.rating = viewModel.currentReport.teleAccScore.toFloat()
+        fuelCheckBox.isChecked = viewModel.currentReport.teleFuelScoredAny
+        fuelRate.isEnabled = viewModel.currentReport.teleFuelScoredAny
+        fuelRate.rating = viewModel.currentReport.teleFuelScore.toFloat()
 
         passCheckBox.isChecked = viewModel.currentReport.teleDidPass
         passRate.isEnabled = viewModel.currentReport.teleDidPass
@@ -95,8 +103,8 @@ class FragmentScoutingTeleop : Fragment() {
     }
 
     private fun writeToViewModel() {
-        viewModel.currentReport.teleFuelRateScore = fuelRate.rating.roundToInt()
-        viewModel.currentReport.teleAccScore = accRate.rating.roundToInt()
+        viewModel.currentReport.teleFuelScoredAny = fuelCheckBox.isChecked
+        viewModel.currentReport.teleFuelScore = if (fuelCheckBox.isChecked) fuelRate.rating.roundToInt() else 0
 
         viewModel.currentReport.teleDidPass = passCheckBox.isChecked
         viewModel.currentReport.telePassScore = if (passCheckBox.isChecked) passRate.rating.roundToInt() else 0

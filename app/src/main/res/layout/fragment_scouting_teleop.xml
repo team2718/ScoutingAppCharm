@@ -16,7 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <!-- Firing Speed -->
+        <!-- Fuel Scoring with Scored Any? checkbox -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -27,40 +27,25 @@
             <TextView
                 android:layout_width="220dp"
                 android:layout_height="wrap_content"
-                android:text="@string/TeleFuelRate"
+                android:text="@string/teleFuelScore"
                 android:textSize="20sp"
                 android:textAlignment="textEnd"
                 android:layout_marginEnd="16dp" />
+
+            <CheckBox
+                android:id="@+id/fuelCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/teleFuelScoredAny"
+                android:textSize="16sp"
+                android:checked="false"
+                android:layout_marginEnd="8dp" />
 
             <RatingBar
                 android:id="@+id/fuelRatingBar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:numStars="5"
-                android:rating="0"
-                android:stepSize="1" />
-        </LinearLayout>
-
-        <!-- Shooting Accuracy -->
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_marginBottom="4dp">
-
-            <TextView
-                android:layout_width="220dp"
-                android:layout_height="wrap_content"
-                android:text="@string/TeleAccRate"
-                android:textSize="20sp"
-                android:textAlignment="textEnd"
-                android:layout_marginEnd="16dp" />
-
-            <RatingBar
-                android:id="@+id/accRatingBar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:enabled="false"
                 android:numStars="5"
                 android:rating="0"
                 android:stepSize="1" />

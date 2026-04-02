@@ -116,8 +116,8 @@
     <string name="played_defense">Played Defense</string>
     <string name="AFuelScored">Fuel Scored</string>
     <string name="AFuelMissed">Fuel Missed</string>
-    <string name="TeleFuelRate">Firing Speed</string>
-    <string name="TeleAccRate">Shooting Accuracy</string>
+    <string name="teleFuelScore">Fuel Scoring</string>
+    <string name="teleFuelScoredAny">Scored Fuel?</string>
     <string name="telePassRate">Passing/Shoveling</string>
     <string name="teleDefenseRate">Defense</string>
     <string name="climbSelect">Climb</string>

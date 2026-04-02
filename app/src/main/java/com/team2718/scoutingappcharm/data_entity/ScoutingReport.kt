@@ -32,8 +32,8 @@ data class ScoutingReport (
     @ColumnInfo(name = "auto_climbed") var autoClimbed: Boolean = false,
 
     // Teleop
-    @ColumnInfo(name = "tele_fuel_rate_score") var teleFuelRateScore: Int = 0,
-    @ColumnInfo(name = "tele_acc_score") var teleAccScore: Int = 0,
+    @ColumnInfo(name = "tele_fuel_scored_any") var teleFuelScoredAny: Boolean = false,
+    @ColumnInfo(name = "tele_fuel_score") var teleFuelScore: Int = 0,
     @ColumnInfo(name = "tele_pass_score") var telePassScore: Int = 0,
     @ColumnInfo(name = "tele_did_pass") var teleDidPass: Boolean = false,
     @ColumnInfo(name = "tele_def_score") var teleDefScore: Int = 0,
