@@ -27,8 +27,6 @@ class FragmentScoutingTeleop : Fragment() {
     private lateinit var fuelCheckBox: CheckBox
     private lateinit var passCheckBox: CheckBox
     private lateinit var defCheckBox: CheckBox
-    private lateinit var rampCheckBox: CheckBox
-    private lateinit var trenchCheckBox: CheckBox
 
     private lateinit var climbSpinner: Spinner
 
@@ -44,8 +42,6 @@ class FragmentScoutingTeleop : Fragment() {
         fuelCheckBox = view.findViewById(R.id.fuelCheckBox)
         passCheckBox = view.findViewById(R.id.passCheckBox)
         defCheckBox = view.findViewById(R.id.defCheckBox)
-        rampCheckBox = view.findViewById(R.id.rampCheckBox)
-        trenchCheckBox = view.findViewById(R.id.trenchCheckBox)
 
         climbSpinner = view.findViewById(R.id.climbSpinner)
 
@@ -97,9 +93,6 @@ class FragmentScoutingTeleop : Fragment() {
         defenseRate.rating = viewModel.currentReport.teleDefScore.toFloat()
 
         climbSpinner.setSelection(viewModel.currentReport.climbType)
-
-        rampCheckBox.isChecked = viewModel.currentReport.teleUsesRamp
-        trenchCheckBox.isChecked = viewModel.currentReport.teleUsesTrench
     }
 
     private fun writeToViewModel() {
@@ -113,9 +106,6 @@ class FragmentScoutingTeleop : Fragment() {
         viewModel.currentReport.teleDefScore = if (defCheckBox.isChecked) defenseRate.rating.roundToInt() else 0
 
         viewModel.currentReport.climbType = climbSpinner.selectedItemPosition
-
-        viewModel.currentReport.teleUsesRamp = rampCheckBox.isChecked
-        viewModel.currentReport.teleUsesTrench = trenchCheckBox.isChecked
     }
 
     private fun next() {

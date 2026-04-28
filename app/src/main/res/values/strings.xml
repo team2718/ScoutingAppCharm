@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ScoutingAppCharm</string>
+    <string name="app_name">2718Scout</string>
     <string name="navbar_scouting">Scouting</string>
     <string name="circle">🔴</string>
     <string name="next">Next</string>
@@ -116,7 +116,7 @@
     <string name="played_defense">Played Defense</string>
     <string name="AFuelScored">Fuel Scored</string>
     <string name="AFuelMissed">Fuel Missed</string>
-    <string name="teleFuelScore">Fuel Scoring</string>
+    <string name="teleFuelScore">Overall Fuel Scoring</string>
     <string name="teleFuelScoredAny">Scored Fuel?</string>
     <string name="telePassRate">Passing/Shoveling</string>
     <string name="teleDefenseRate">Defense</string>
